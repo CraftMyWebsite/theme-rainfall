@@ -4,9 +4,13 @@ module.exports = {
     './dev/**/*.{php,html,js}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        transparent: 'transparent',
+      },
+    },
   },
   plugins: [
-    require("daisyui")
+    require('flowbite/plugin')
   ],
 }

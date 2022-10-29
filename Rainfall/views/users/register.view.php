@@ -1,3 +1,12 @@
+<?php
+use CMW\Model\Core\ThemeModel;
+use CMW\Controller\Core\SecurityController;
+use CMW\Manager\Lang\LangManager;
+use CMW\Utils\SecurityService;
+
+use CMW\Utils\Utils;
+$title = Utils::getSiteName() . ' - Inscription';
+$description = 'Inscrivez-vous sur ' . Utils::getSiteName(); ?>
 <div class="bg-[#18202E] w-full pt-14 pb-4">
     <div class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500">Inscription</div>
 </div>
@@ -12,30 +21,31 @@
     <div class="relative bg-[#18202E] rounded-lg shadow">
         <div class="py-6 px-6 lg:px-8">
             <form class="space-y-6" action="" method="post">
-                <?php /* ACTIVER EN PROD : (new SecurityService())->insertHiddenToken()*/ ?>
+                <?php (new SecurityService())->insertHiddenToken() ?>
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium">Mail</label>
-                    <input name="register_email" type="email" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="<?php /*ACTIVER EN PROD : LangManager::translate("users.users.mail")*/ ?>" required>
+                    <input name="register_email" type="email" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="<?= LangManager::translate("users.users.mail") ?>" required>
                 </div>
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium">Pseudo / Nom d'affichage</label>
-                    <input name="register_pseudo" type="text" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="<?php /*ACTIVER EN PROD : LangManager::translate("users.users.pseudo")*/ ?>" required>
+                    <input name="register_pseudo" type="text" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="<?= LangManager::translate("users.users.pseudo") ?>" required>
                 </div>
                 <div>
                     <label for="password" class="block mb-2 text-sm font-medium">Mot de passe</label>
                     <div class="flex">
-                        <input id="passwordInput" type="password" name="register_password" placeholder="<?php /*ACTIVER EN PROD : LangManager::translate("users.users.pass")*/ ?>" class="block bg-gray-800 border border-gray-900 text-sm rounded-l-lg block w-full p-2.5" required>
+                        <input id="passwordInput" type="password" name="register_password" placeholder="<?= LangManager::translate("users.users.pass") ?>" class="block bg-gray-800 border border-gray-900 text-sm rounded-l-lg block w-full p-2.5" required>
                         <div onclick="showPassword()" class="cursor-pointer p-2.5 text-sm font-medium text-white bg-blue-900 rounded-r-lg border border-blue-900 hover:bg-blue-800"><i class="fa fa-eye-slash" aria-hidden="true"></i></div>
                     </div>
                 </div>
                 <div>
                     <label for="password" class="block mb-2 text-sm font-medium">Confirmation</label>
                     <div class="flex">
-                        <input id="passwordInputV" type="password" name="register_password_verify" placeholder="<?php /*ACTIVER EN PROD : LangManager::translate("users.users.pass")*/ ?>" class="block bg-gray-800 border border-gray-900 text-sm rounded-l-lg block w-full p-2.5" required>
+                        <input id="passwordInputV" type="password" name="register_password_verify" placeholder="<?= LangManager::translate("users.users.pass") ?>" class="block bg-gray-800 border border-gray-900 text-sm rounded-l-lg block w-full p-2.5" required>
                         <div onclick="showPasswordV()" class="cursor-pointer p-2.5 text-sm font-medium text-white bg-blue-900 rounded-r-lg border border-blue-900 hover:bg-blue-800"><i class="fa fa-eye-slash" aria-hidden="true"></i></div>
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><?php /*ACTIVER EN PROD : LangManager::translate("users.login.register")*/ ?></button>
+                <?php SecurityController::getPublicData(); ?>
+                <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><?= LangManager::translate("users.login.register") ?></button>
             </form>
             <div class="flex flex-no-wrap justify-center items-center py-4">
                 <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
@@ -63,22 +73,22 @@
 </div>
 
 <script>
-	function showPassword() {
-		var x = document.getElementById("passwordInput");
-		if (x.type === "password") {
-			x.type = "text";
-		} else {
-			x.type = "password";
-		}
-	}
-	function showPasswordV() {
-		var x = document.getElementById("passwordInputV");
-		if (x.type === "password") {
-			x.type = "text";
-		} else {
-			x.type = "password";
-		}
-	}
+    function showPassword() {
+        var x = document.getElementById("passwordInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+    function showPasswordV() {
+        var x = document.getElementById("passwordInputV");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
 </script>
 
 <div class="text-gray-600">

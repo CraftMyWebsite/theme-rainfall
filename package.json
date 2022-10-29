@@ -1,0 +1,28 @@
+{
+  "name": "theme-rainfall",
+  "version": "1.0.0",
+  "description": "Site craftmywebsite 2.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss -w src/tailwind.css -o dev/assets/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CraftMyWebsite/theme-rainfall.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CraftMyWebsite/theme-rainfall/issues"
+  },
+  "homepage": "https://github.com/CraftMyWebsite/theme-rainfall#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.2.1"
+  },
+  "dependencies": {
+    "daisyui": "^2.33.0"
+  }
+}

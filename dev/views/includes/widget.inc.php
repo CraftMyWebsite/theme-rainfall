@@ -12,15 +12,72 @@
 <section class="px-4 lg:px-16 py-6">
 
     <div class="lg:grid lg:grid-cols-5 gap-6">
-        <div style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg p-4 h-fit">
-            <div class="flex flex-no-wrap justify-center items-center py-4 -mb-6">
-                <div class="px-10 w-auto">
-                    <h2 class="font-semibold text-2xl uppercase">Widgets</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----LE WIDGET COMMENCE ICI---->
+
+<div style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg p-4 h-fit">
+    <div class="flex flex-no-wrap justify-center items-center py-4 -mb-6">
+        <div class="px-10 w-auto">
+            <h2 class="font-semibold text-2xl uppercase">Widgets</h2>
+        </div>
+    </div>
+
+    <div class="font-medium text-gray-500 mt-6 cursor-default">Dernières actus : </div>
+    <div style="background-color: #1e293b !important;" class="flex flex-wrap h-full overflow-hidden rounded-md shadow-lg mb-2">
+        <div class="p-2 w-full">
+            <h3 class="font-bold leading-tight mb-2 text-xl">
+                <a href="#" class="hover:text-blue-600">I 💞 Front !</a></h3>
+            <p>Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.</p>
+            <div class="mt-2 flex justify-between">
+                <a href="#" class="font-bold hover:text-blue-700 text-sm">Lire la suite <i class="fa-solid fa-caret-right"></i></a>
+                <div class="cursor-pointer">
+                    <span class="text-base">0 <i class="fa-regular fa-heart"></i></span>
                 </div>
             </div>
-            <div class="font-medium text-gray-500 mt-6 cursor-default">Discord </div>
-            <iframe class="w-full" src="https://discord.com/widget?id=1011276808341180426&theme=dark" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
+    </div>
+
+    <div class="font-medium text-gray-500 mt-6 cursor-default">Discord :</div>
+    <iframe class="w-full" src="https://discord.com/widget?id=1011276808341180426&theme=dark" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+    <div>
+        <div class="font-medium text-gray-500 mt-6 cursor-default">Personnalisé 1 :</div>
+        <div style="background-color: #1e293b !important;" class="flex flex-wrap h-full overflow-hidden rounded-md shadow-lg">
+            <div class="p-2">test</div>
+        </div>
+    </div>
+</div>
+
+
+        <!----LE WIDGET FINI ICI---->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="col-span-3 mt-4 lg:mt-0">
             <div style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg py-4 px-8 h-fit">

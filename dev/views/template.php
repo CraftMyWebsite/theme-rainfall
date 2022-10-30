@@ -8,7 +8,7 @@ include_once("includes/header.inc.php");
 
 <!-- En prod (Appeler le content ici)-->
 <?php
-include_once("pages/main.view.php");
+include_once("includes/widget.inc.php");
 ?>
 
 

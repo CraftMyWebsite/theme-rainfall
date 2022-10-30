@@ -13,52 +13,64 @@
 
 return [
    /* - - - - - - - - 
-       - - HEADER & GLOBAL - -
+    - - HEADER & GLOBAL - -
     - - - - - - - - - */
-    "header_active_title" => "true",
-    "header_active_logo" => "true",
+    "global_only_member_access" => "",
+    "global_only_member_message" => "Merci de vous connecter ou de vous inscrire pour accéder à cette page. <br> Accès retreint au membres uniquement.",
     "header_allow_register_button" => "true",
     "header_allow_login_button" => "true",
     "global_no_register_message" => "Nous somme désolé mais les inscriptions sont pour le moment désactiver.",
+    "footer_year" => "2022",
+    "primaryColor" => "#1e293b",
+    "secondaryColor" => "#18202E",
+
+    /* - - - - - - - - 
+    - - WIDGET - -
+    - - - - - - - - - */
+    "widget_active" => "true",
+    "widget_title" => "Widget",
+    "widget_last_news_active" => "true",
+    "widget_last_news_title" => "Dernières actus :",
+    "widget_last_news_number_display" => "3",
+    "widget_discord_active" => "true",
+    "widget_discord_title" => "Discord :",
+    "widget_discord_link" => "https://discord.com/widget?id=1011276808341180426&theme=dark",
+    "widget_custom_active_1" => "",
+    "widget_custom_title_1" => "Personnalisé 1 :",
+    "widget_custom_content_1" => "Vous pouvez mettre du code <b>html</b> ici !",
+    "widget_custom_active_2" => "",
+    "widget_custom_title_2" => "Personnalisé 2 :",
+    "widget_custom_content_2" => "Vous pouvez mettre du code <b>html</b> ici !",
+    "widget_custom_active_3" => "",
+    "widget_custom_title_3" => "Personnalisé 3 :",
+    "widget_custom_content_3" => "Vous pouvez mettre du code <b>html</b> ici !",
+    "widget_custom_active_4" => "",
+    "widget_custom_title_4" => "Personnalisé 4 :",
+    "widget_custom_content_4" => "Vous pouvez mettre du code <b>html</b> ici !",
 
     /* - - - - - - - - 
        - - HOME - -
     - - - - - - - - - */
-    /*TITLE DESC*/
     "home_title" => "Accueil",
-    /*HERO SECTION*/
-    "hero_title" => "Bienvenue !",
-    "hero_description" => "Une super description pour mon serveur !",
-    "hero_button_text" => "Texte du bouton",
-    "hero_button_link" => "#",
-    /*FEATURE SECTION*/
-    "feature_section_active" => "true",
-    "feature_section_title" => "Fonctionnalités",
-    "feature_title_1" => "Communauté",
-    "feature_description_1" => "Amet minim mollit non deserunt ullamco est sit aliqua",
-    "feature_title_2" => "Savoir faire",
-    "feature_description_2" => "Amet minim mollit non deserunt ullamco est sit aliqua",
-    "feature_title_3" => "Réactif",
-    "feature_description_3" => "Amet minim mollit non deserunt ullamco est sit aliqua",
-    /*NEWS SECTION*/
-    "news_section_active" => "true",
-    "news_section_title" => "Nouveautés",
-    "news_number_display" => "4",
-    /*CONTACT SECTION*/
-    "contact_section_active" => "true",
-    "contact_section_title" => "Nous contacter",
-    /*CUSTOM SECTION #1*/
-    "custom_section_active_1" => "",
-    "custom_section_title_1" => "Titre personnalisé 1",
-    "custom_section_content_1" => "<h1>Personnalise moi</h1> <br> <p>Comme du code HTML !</p>",
-    /*CUSTOM SECTION #2*/
-    "custom_section_active_2" => "",
-    "custom_section_title_2" => "Titre personnalisé 2",
-    "custom_section_content_2" => "<h1>Personnalise moi</h1> <br> <p>Comme du code HTML !</p>",
-    /*CUSTOM SECTION #3*/
-    "custom_section_active_3" => "",
-    "custom_section_title_3" => "Titre personnalisé 3",
-    "custom_section_content_3" => "<h1>Personnalise moi</h1> <br> <p>Comme du code HTML !</p>",
+    "home_description" => "Une super description pour mon serveur !",
+
+    "footer_open_link_new_tab" => "true",
+
+    "footer_link_facebook" => "#",
+    "footer_icon_facebook" => "fa-brands fa-facebook",
+    "footer_active_facebook" => "true",
+
+    "footer_link_twitter" => "#",
+    "footer_icon_twitter" => "fa-brands fa-square-twitter",
+    "footer_active_twitter" => "true",
+
+    "footer_link_instagram" => "#",
+    "footer_icon_instagram" => "fa-brands fa-instagram",
+    "footer_active_instagram" => "true",
+
+    "footer_link_discord" => "#",
+    "footer_icon_discord" => "fa-brands fa-discord",
+    "footer_active_discord" => "true",
 
     /* - - - - - - - - 
        - - NEWS - -
@@ -103,26 +115,4 @@ return [
     "wiki_display_creation_date" => "true",
     "wiki_display_edit_date" => "true",
     "wiki_display_autor" => "true",
-
-    /* - - - - - - - - 
-       - - FOOTER - -
-    - - - - - - - - - */
-    "footer_year" => "2022",
-    "footer_open_link_new_tab" => "true",
-
-    "footer_link_facebook" => "#",
-    "footer_icon_facebook" => "fa-brands fa-facebook",
-    "footer_active_facebook" => "true",
-
-    "footer_link_twitter" => "#",
-    "footer_icon_twitter" => "fa-brands fa-square-twitter",
-    "footer_active_twitter" => "true",
-
-    "footer_link_instagram" => "#",
-    "footer_icon_instagram" => "fa-brands fa-instagram",
-    "footer_active_instagram" => "true",
-
-    "footer_link_discord" => "#",
-    "footer_icon_discord" => "fa-brands fa-discord",
-    "footer_active_discord" => "true",
 ];

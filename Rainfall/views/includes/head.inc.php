@@ -37,5 +37,5 @@ use CMW\Utils\Utils;
 
 </head>
 
-<body style="background-color: #1e293b" class="absolute w-full text-white">
+<body style="background-color: <?= ThemeModel::fetchConfigValue('primaryColor') ?> !important" class="absolute w-full text-white">
 <?= $core->cmwWarn() ?>

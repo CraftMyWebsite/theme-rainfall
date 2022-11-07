@@ -3,8 +3,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Controller\Users\UsersController;
 /*NEWS BASIC NEED*/
 use CMW\Model\News\NewsModel;
-$newsList = new NewsModel();
-$newsList = $newsList->getSomeNews( ThemeModel::fetchConfigValue('widget_last_news_number_display'), 'DESC');
+$newsListWidget = new NewsModel();
+$newsListWidget = $newsListWidget->getSomeNews( ThemeModel::fetchConfigValue('widget_last_news_number_display'), 'DESC');
 
 ?>
 <div style="background-color: <?= ThemeModel::fetchConfigValue('secondaryColor') ?> !important;" class="container mx-auto rounded-md shadow-lg p-4 h-fit">
@@ -16,7 +16,7 @@ $newsList = $newsList->getSomeNews( ThemeModel::fetchConfigValue('widget_last_ne
 
 <?php if(ThemeModel::fetchConfigValue('widget_last_news_active')): ?>
     <div class="font-medium text-gray-500 mt-6 cursor-default"><?= ThemeModel::fetchConfigValue('widget_last_news_title') ?></div>
-    <?php foreach ($newsList as $news): ?>
+    <?php foreach ($newsListWidget as $news): ?>
     <div style="background-color: <?= ThemeModel::fetchConfigValue('primaryColor') ?> !important;" class="h-full overflow-hidden rounded-md shadow-lg mb-2">
         <div class="p-2 w-full">
             <div class="font-bold leading-tight mb-2 text-xl">
@@ -30,13 +30,13 @@ $newsList = $newsList->getSomeNews( ThemeModel::fetchConfigValue('widget_last_ne
                     <span class="text-base"><?= $news->getLikes()->getTotal() ?>                                 
                     <?php if ($news->getLikes()->userCanLike()): ?>
                     <a href="#"><i class="fa-solid fa-heart"></i></a>
-                    <div id="tooltip-liked" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+                    <div id="tooltip-liked" role="tooltip" class="hidden lg:inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
                     <?php if(UsersController::isUserLogged()) {echo "Vous aimez déjà !";} else {echo "Connectez-vous pour aimé !";} ?>
                     <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
                     <?php else: ?> 
                     <a href="<?= $news->getLikes()->getSendLike() ?>"><i class="fa-regular fa-heart"></i></a>
-                    <div id="tooltip-like" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+                    <div id="tooltip-like" role="tooltip" class="hidden lg:inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
                     Merci pour votre soutien !
                     <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>

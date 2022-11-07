@@ -20,25 +20,27 @@ $description = 'Visitez notre page ' . ucfirst($page->getTitle());
         <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
     </svg>
 </div>
-<?php if(ThemeModel::fetchConfigValue('global_only_member_access') && UsersController::isUserLogged()): ?>
-        <section style="background-color: <?= ThemeModel::fetchConfigValue('secondaryColor') ?> !important;" class="rounded-lg shadow my-8 mx-2 lg:mx-72">
-        <div class="container p-4">
+    <section class="px-4 lg:px-16 py-6">
+        <!------VERIFICATION SI LE WIDGET EST ACTIF------->
+<?php 
+if(ThemeModel::fetchConfigValue('widget_active'))
+{
+    echo "<div class='lg:grid lg:grid-cols-5 gap-6'>";
+    include_once "public/themes/Rainfall/views/includes/widget.inc.php"; 
+    echo "<div class='col-span-4'>";
+}
+?>
+
+        <div style="background-color: <?= ThemeModel::fetchConfigValue('secondaryColor') ?> !important;" class="container mx-auto rounded-md shadow-lg py-4 px-8">
             <?= $page->getConverted() ?>
         </div>
+<?php 
+if(ThemeModel::fetchConfigValue('widget_active'))
+{
+    echo "</div>";
+}
+?>
     </section>
-    <?php elseif (ThemeModel::fetchConfigValue('global_only_member_access')): ?>
-        <section style="background-color: <?= ThemeModel::fetchConfigValue('secondaryColor') ?> !important;" class="rounded-lg shadow my-8 mx-2 lg:mx-72">
-            <div class="container p-4">
-                <?= ThemeModel::fetchConfigValue('global_only_member_message') ?>
-            </div>
-        </section>
-    <?php else: ?>
-        <section style="background-color: <?= ThemeModel::fetchConfigValue('secondaryColor') ?> !important;" class="rounded-lg shadow my-8 mx-2 lg:mx-72">
-        <div class="container p-4">
-            <?= $page->getConverted() ?>
-        </div>
-    </section>
-<?php endif; ?>
 <!-- Footer -->
 <?php 
 include_once "public/themes/Rainfall/views/includes/footer.inc.php"; 

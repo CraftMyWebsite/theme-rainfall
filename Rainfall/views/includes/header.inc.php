@@ -63,7 +63,7 @@ use CMW\Model\Core\ThemeModel;
                             <a href="/wiki" class="block py-2 pr-4 pl-3 rounded md:p-0" aria-current="page">Wiki</a>
                         </li>
                         <li>
-                            <a href="/votes" class="block py-2 pr-4 pl-3 rounded md:p-0" aria-current="page">Votes</a>
+                            <a href="/vote" class="block py-2 pr-4 pl-3 rounded md:p-0" aria-current="page">Votes</a>
                         </li>
                         
         </div>

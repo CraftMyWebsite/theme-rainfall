@@ -9,21 +9,30 @@ $title = Utils::getSiteName() . ' - '. ThemeModel::fetchConfigValue('faq_title')
 $description = ThemeModel::fetchConfigValue('faq_description');
 ?>
 
-<section class="bg-gray-800 relative text-white">
-    <img src="<?= getenv("PATH_SUBFOLDER") ?>public/uploads/Wipe/bg.webp" class="absolute h-full inset-0 object-center object-cover w-full" alt="Vous devez upload bg.webp depuis votre panel !" width="1080" height="720"/>
-    <div class="container mx-auto px-4 py-12 relative">
-        <div class="flex flex-wrap -mx-4">
-            <div class="mx-auto px-4 text-center w-full lg:w-8/12">
-                <h1 class="font-extrabold mb-4 text-2xl md:text-6xl"><?= ThemeModel::fetchConfigValue('faq_page_title') ?></h1>
-            </div>
-        </div>
-    </div>
-</section>
+<div style="background-color: #18202E !important;" class="w-full pt-14 pb-4">
+    <div class="text-center pt-4 font-bold text-4xl border-t border-gray-500"><?= ThemeModel::fetchConfigValue('faq_page_title') ?></div>
+</div>
+<div class="custom-shape-divider-top-1667065406">
+    <svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="h-2 lg:h-10" style="background-color: #1e293b !important; color: #18202E;">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+    </svg>
+</div>
 
-<section class="px-2 md:px-24 xl:px-48 2xl:px-72 py-6">
+<section class="px-4 lg:px-16 py-6">
+        <!------VERIFICATION SI LE WIDGET EST ACTIF------->
+<?php 
+if(ThemeModel::fetchConfigValue('widget_active'))
+{
+    echo "<div class='lg:grid lg:grid-cols-5 gap-6'>";
+    include_once "public/themes/Rainfall/views/includes/widget.inc.php"; 
+    echo "<div class='col-span-4'>";
+}
+?>
     <div class="<?php if(ThemeModel::fetchConfigValue('faq_display_form')): {echo "lg:grid lg:grid-cols-3 gap-6";} endif ?>">
         <?php if(ThemeModel::fetchConfigValue('faq_display_form')): ?>
-            <div class="container mx-auto rounded-md shadow-lg p-8">
+            <div style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg p-8">
                 <div class="flex flex-no-wrap justify-center items-center py-4">
                     <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                     <div class="px-10 w-auto">
@@ -35,46 +44,46 @@ $description = ThemeModel::fetchConfigValue('faq_description');
             <?php (new SecurityService())->insertHiddenToken() ?>
             <div class="flex flex-wrap -mx-4 mb-4">
                 <div class="px-4 w-full md:w-6/12 lg:w-6/12">
-                    <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Votre mail :</label>
+                    <label for="email-address-icon" class="block mb-2 text-sm font-medium">Votre mail :</label>
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                             <i class="fa-regular fa-envelope"></i>
                         </div>
-                        <input type="email" name="email" id="email-address-icon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="votre@mail.com" required>
+                        <input type="email" name="email" id="email-address-icon" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="votre@mail.com" required>
                     </div>
                 </div>
                 <div class="px-4 w-full md:w-6/12 lg:w-6/12">
-                    <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Votre nom :</label>
+                    <label for="email-address-icon" class="block mb-2 text-sm font-medium">Votre nom :</label>
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                             <i class="fa-regular fa-user"></i>
                         </div>
-                        <input type="text" name="name" id="email-address-icon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Jean Dupont" required>
+                        <input type="text" name="name" id="email-address-icon" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Jean Dupont" required>
                     </div>
                 </div>
             </div>
             <div class="mb-2">
-                    <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sujet :</label>
+                    <label for="email-address-icon" class="block mb-2 text-sm font-medium">Sujet :</label>
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                             <i class="fa-solid fa-circle-info"></i>
                         </div>
-                        <input type="text" name="object" id="email-address-icon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="J'aimerais aborder avec vous ..." required>
+                        <input type="text" name="object" id="email-address-icon" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="J'aimerais aborder avec vous ..." required>
                     </div>
             </div>
             <div class="mb-2">
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Votre message :</label>
-                <textarea id="message" name="content" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonjour," required></textarea>
+                <label for="message" class="block mb-2 text-sm font-medium">Votre message :</label>
+                <textarea id="message" name="content" rows="4" class="block p-2.5 w-full text-sm bg-gray-800 border border-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonjour," required></textarea>
             </div>
             <div class="text-center">
                 <?php SecurityController::getPublicData(); ?>
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 focus:outline-none">Soumettre <i class="fa-solid fa-paper-plane"></i></button>
+                <button type="submit" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 focus:outline-none">Soumettre <i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </form>
             </div>
             <?php endif; ?>
         <div class="col-span-2">
-            <div class="container mx-auto rounded-md shadow-lg p-8">
+            <div style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg p-8">
                 <div class="flex flex-no-wrap justify-center items-center py-4">
                     <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                     <div class="px-10 w-auto">
@@ -96,4 +105,10 @@ $description = ThemeModel::fetchConfigValue('faq_description');
             </div>
         </div>
     </div>
+<?php 
+if(ThemeModel::fetchConfigValue('widget_active'))
+{
+    echo "</div> </div>";
+}
+?>
 </section>

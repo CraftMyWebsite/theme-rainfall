@@ -75,9 +75,9 @@ return [
     /* - - - - - - - - 
        - - NEWS - -
     - - - - - - - - - */
-    "news_title" => "Nouveautés",
+    "news_title" => "Actualités",
     "news_description" => "Les dernières actus !",
-    "news_page_title" => "Archives des nouveautés",
+    "news_page_title" => "Actualités",
     "news_page_number_display" => "20",
 
     /* - - - - - - - - 

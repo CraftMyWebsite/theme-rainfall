@@ -46,7 +46,7 @@
             <div class="mt-2 flex justify-between">
                 <a href="#" class="font-bold hover:text-blue-700 text-sm">Lire la suite <i class="fa-solid fa-caret-right"></i></a>
                 <div class="cursor-pointer">
-                    <span class="text-base">0 <i class="fa-regular fa-heart"></i></span>
+                    <span class="text-base hidden lg:inline-block">0 <i class="fa-regular fa-heart"></i></span>
                 </div>
             </div>
         </div>

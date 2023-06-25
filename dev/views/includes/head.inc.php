@@ -14,4 +14,4 @@
 
 </head>
 
-<body style="background-color: #1e293b" class="absolute w-full text-white">
+<body style="background-color: #1e293b" class=" w-full text-white flex flex-col min-h-screen">

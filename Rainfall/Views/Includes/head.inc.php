@@ -16,7 +16,8 @@ use CMW\Manager\Views\View;
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title><?= $title ?></title>
+    <meta name="description" content="><?= $description ?>">
 
     <?= ImagesManager::getFaviconInclude() ?>
 
@@ -28,3 +29,4 @@ use CMW\Manager\Views\View;
 </head>
 
 <body style="background-color: #1e293b" class=" w-full text-white flex flex-col min-h-screen">
+<?= $core->cmwWarn() ?>

@@ -16,6 +16,8 @@ return [
     "widget_use_cgu" => "1",
     "widget_use_cgv" => "1",
     "widget_use_news_list" => "1",
+    "widget_use_news" => "1",
+    "widget_use_vote" => "1",
 
     /* - - - - - - - -
     - - HOME PAGE - -

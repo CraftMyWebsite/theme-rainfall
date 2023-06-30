@@ -47,7 +47,7 @@ $menus = MenusModel::getInstance();
                                     <li>
                                         <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>profile"
                                            class="block py-2 px-4 text-white"><i class="fa-regular fa-address-card"></i>
-                                            Profile</a>
+                                            Profil</a>
                                     </li>
                                 </ul>
                                 <div class="py-1">

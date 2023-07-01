@@ -1,5 +1,6 @@
 <?php
 
+use CMW\Controller\Core\ThemeController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Model\Users\UsersModel;
 use CMW\Model\Core\ThemeModel;
@@ -33,9 +34,9 @@ $description = ThemeModel::fetchConfigValue('vote_description');
         </div>
         <?php endif; ?>
 
-        <section class="px-2 mx-2 py-6 <?php if (!ThemeModel::fetchConfigValue('widget_use_vote')): ?>lg:mx-72<?php endif; ?> col-span-4">
+        <section class="px-2 mx-2 <?php if (!ThemeModel::fetchConfigValue('widget_use_vote')): ?>lg:mx-72<?php endif; ?> col-span-4">
             <div class="lg:grid lg:grid-cols-3 gap-6">
-                <div class="container mx-auto rounded-md shadow-lg p-8 h-fit">
+                <div class="bg-[#18202E] container mx-auto rounded-md shadow-lg p-8 h-fit">
                     <div class="flex flex-no-wrap justify-center items-center py-4">
                         <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                         <div class="px-10 w-auto">
@@ -63,10 +64,10 @@ $description = ThemeModel::fetchConfigValue('vote_description');
                     <?php else: ?>
                     <!-- LIST SITES -->
                     <?php foreach ($sites as $site): ?>
-                    <div class="rounded-md shadow-lg p-2 mb-4">
+                    <div class="bg-gray-800 rounded-md shadow-lg p-2 mb-4">
                         <div class="flex flex-wrap justify-between">
                             <div class="font-medium"><?= $site->getTitle() ?></div>
-                            <div class="bg-gray-300 font-medium inline-block px-3 py-1 rounded-sm text-xs "><i
+                            <div class="bg-gray-500 font-medium inline-block px-3 py-1 rounded-sm text-xs "><i
                                     class="fa-solid fa-clock-rotate-left"></i> <?= $site->getTimeFormatted() ?>
                             </div>
                         </div>
@@ -74,10 +75,9 @@ $description = ThemeModel::fetchConfigValue('vote_description');
                             <div class="mt-2 py-2 font-medium">Récompense : <span class="font-bold"><?= $site->getRewards()?->getTitle() ?></span>
                             </div>
                             <div class="pt-4 pb-2">
-                                <a onclick="sendVote('?= $site->getSiteId() ?>')" type="button"
-                                   rel="noopener noreferrer"
+                                <button onclick="sendVote('<?= $site->getSiteId() ?>', this)"
                                    class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2">Voter
-                                    <i class="fa-solid fa-award"></i></a>
+                                    <i class="fa-solid fa-award"></i></button>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
 
                 </div>
                 <div class="col-span-2">
-                    <div class="container mx-auto rounded-md shadow-lg p-8">
+                    <div class="bg-[#18202E] container mx-auto rounded-md shadow-lg p-8">
                         <div class="flex flex-no-wrap justify-center items-center py-4">
                             <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                             <div class="px-10 w-auto">
@@ -98,7 +98,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
 
                         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                             <table class="w-full text-sm text-left text-gray-600">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-500">
+                                <thead class="text-xs text-white uppercase bg-gray-800">
                                 <tr>
                                     <th scope="col" class="py-3 px-6">
                                         <i class="fa-solid fa-user"></i> Voteur
@@ -116,20 +116,36 @@ $description = ThemeModel::fetchConfigValue('vote_description');
                                 <?php $i = 0;
                                 foreach ($topCurrent as $top): $i++; ?>
 
-                                <tr class="bg-gray-400">
+                                <tr class="bg-gray-600">
                                     <td scope="row"
                                         class="flex items-center lg:px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         <img class="hidden lg:inline-block w-10 h-10 rounded-full"
-                                             src="?= $top->getUser()->getUserPicture()->getImageLink() ?>" alt="...">
+                                             src="<?= $top->getUser()->getUserPicture()->getImageLink() ?>" alt="...">
                                         <div class="lg:pl-3 py-4">
                                             <div class="text-base font-semibold"><?= $top->getUser()->getPseudo() ?>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="py-4 px-6 text-center">
-                                        <?php $color_position = $i ?>
-                                        <div class="bg-amber-400 bg-amber-300 bg-amber-200 bg-blue-200 inline-block px-3 py-1 rounded-sm font-medium text-black">
-                                        </div>
+                                        <?php $color_position = $i  ?>
+                                        <div class="
+                                                <?php
+                                        switch ($color_position) {
+                                            case '1':
+                                                echo "bg-amber-400";
+                                                break;
+                                            case '2':
+                                                echo "bg-amber-300";
+                                                break;
+                                            case '3':
+                                                echo "bg-amber-200";
+                                                break;
+                                            default:
+                                                echo "bg-blue-200";
+                                                break;
+                                        }
+                                        ?>
+                                             inline-block px-3 py-1 rounded-sm font-medium text-black"># <?= $i ?></div>
                                     </td>
                                     <td class="py-4 px-6 text-center">
                                         <div class="font-medium"><?= $top->getVotes() ?></div>
@@ -146,7 +162,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
             </div>
             <?php if(ThemeModel::fetchConfigValue('votes_display_global')): ?>
             <div class="md:px-16 xl:px-28 2xl:px-48 mt-4">
-                <div class="container mx-auto rounded-md shadow-lg p-8">
+                <div class="bg-[#18202E] container mx-auto rounded-md shadow-lg p-8">
                     <div class="flex flex-no-wrap justify-center items-center py-4">
                         <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                         <div class="px-10 w-auto">
@@ -158,7 +174,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
 
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left text-gray-600">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-500">
+                            <thead class="text-xs text-white uppercase bg-gray-800">
                             <tr>
                                 <th scope="col" class="py-3 px-6">
                                     <i class="fa-solid fa-user"></i> Voteur
@@ -173,20 +189,35 @@ $description = ThemeModel::fetchConfigValue('vote_description');
                             </thead>
                             <tbody>
                             <?php $i = 0; foreach ($topGlobal as $top): $i++; ?>
-                            <tr class="bg-gray-400">
+                            <tr class="bg-gray-600">
                                 <th scope="row"
                                     class="flex items-center lg:px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <img class="hidden lg:inline-block w-10 h-10 rounded-full"
-                                         src="?= $top->getUser()->getUserPicture()->getImageLink() ?>" alt="...">
+                                         src="<?= $top->getUser()->getUserPicture()->getImageLink() ?>" alt="...">
                                     <div class="lg:pl-3 py-4">
                                         <div class="text-base font-semibold"><?= $top->getUser()->getPseudo() ?></div>
                                     </div>
                                 </th>
                                 <td class="py-4 px-6 text-center">
-                                    <?php $color_position = $i ?>
+                                    <?php $color_position = $i  ?>
                                     <div class="
-
-                            inline-block px-3 py-1 rounded-sm font-medium text-black"># ?= $i ?>
+                                <?php
+                                    switch ($color_position) {
+                                        case '1':
+                                            echo "bg-amber-400";
+                                            break;
+                                        case '2':
+                                            echo "bg-amber-300";
+                                            break;
+                                        case '3':
+                                            echo "bg-amber-200";
+                                            break;
+                                        default:
+                                            echo "bg-blue-200";
+                                            break;
+                                    }
+                                    ?>
+                            inline-block px-3 py-1 rounded-sm font-medium text-black"># <?= $i ?>
                                     </div>
                                 </td>
                                 <td class="py-4 px-6 text-center">
@@ -205,3 +236,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
         </section>
         <?php if (ThemeModel::fetchConfigValue('widget_use_vote')): ?></div><?php endif; ?>
 </section>
+
+<link rel="stylesheet" href="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') . 'Admin/Resources/Vendors/Izitoast/iziToast.min.css' ?>">
+<script src="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') . 'Admin/Resources/Vendors/Izitoast/iziToast.min.js' ?>"></script>
+<script src="<?= ThemeController::getCurrentTheme()->getPath() . 'Views/Votes/Resources/Js/VotesLogic.js' ?>"></script>

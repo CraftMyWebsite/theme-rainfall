@@ -1,11 +1,39 @@
-<div style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg p-4 h-fit">
-    <div class="flex flex-no-wrap justify-center items-center py-4 -mb-6">
-        <div class="px-10 w-auto">
-            <h2 class="font-semibold text-2xl uppercase">Widgets</h2>
+<?php use CMW\Model\Core\ThemeModel;
+use CMW\Model\Users\UsersModel;
+
+?>
+
+<div class="h-fit">
+    <?php if (ThemeModel::fetchConfigValue('widgets_show_discord')): ?>
+        <div class="w-full shadow-md mb-6">
+            <div class="">
+                <iframe style="width: 100%"
+                        src="https://discord.com/widget?id=<?= ThemeModel::fetchConfigValue('widgets_content') ?>&theme=dark"
+                        height="300" allowtransparency="true"
+                        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </div>
         </div>
-    </div>
-    <div class="font-medium text-gray-500 mt-6 cursor-default">Discord</div>
-    <iframe class="w-full" src="https://discord.com/widget?id=1011276808341180426&theme=dark" height="500"
-            allowtransparency="true" frameborder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <?php endif; ?>
+    <?php if (ThemeModel::fetchConfigValue('widgets_show_custom_1')): ?>
+        <div style="background-color: #18202E !important;" class="w-full rounded-lg shadow mb-6">
+            <div class="flex py-4 border-b">
+                <div
+                        class="px-4 font-bold"><?= ThemeModel::fetchConfigValue('widgets_custom_title_1') ?></div>
+            </div>
+            <div class="px-2 py-4">
+                <?= ThemeModel::fetchConfigValue('widgets_custom_text_1') ?>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php if (ThemeModel::fetchConfigValue('widgets_show_custom_2')): ?>
+        <div style="background-color: #18202E !important;" class="w-full rounded-lg shadow mb-6">
+            <div class="flex py-4 border-b">
+                <div
+                        class="px-4 font-bold"><?= ThemeModel::fetchConfigValue('widgets_custom_title_2') ?></div>
+            </div>
+            <div class="px-2 py-4">
+                <?= ThemeModel::fetchConfigValue('widgets_custom_text_2') ?>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>

@@ -18,11 +18,41 @@ return [
     "widget_use_news_list" => "1",
     "widget_use_news" => "1",
     "widget_use_vote" => "1",
+    "widget_use_wiki" => "1",
+
+    "widgets_show_discord" => "1",
+    "widgets_content_id" => "(Paramètres serveur > Widget > ID serveur)",
+    "widgets_show_custom_1" => "1",
+    "widgets_custom_title_1" => "Widget personnaliser 1",
+    "widgets_custom_text_1" => "<p>Bonjour !</p>",
+    "widgets_show_custom_2" => "1",
+    "widgets_custom_title_2" => "Widget personnaliser 2",
+    "widgets_custom_text_2" => "<p>Bonjour !</p>",
 
     /* - - - - - - - -
     - - HOME PAGE - -
     - - - - - - - - - */
+    "home_title" => "Accueil",
+
     "home_background" => "Config/Default/Img/bg.jpg",
+
+    "footer_open_link_new_tab" => "1",
+
+    "footer_link_facebook" => "#",
+    "footer_icon_facebook" => "fa-brands fa-facebook",
+    "footer_active_facebook" => "1",
+
+    "footer_link_twitter" => "#",
+    "footer_icon_twitter" => "fa-brands fa-square-twitter",
+    "footer_active_twitter" => "1",
+
+    "footer_link_instagram" => "#",
+    "footer_icon_instagram" => "fa-brands fa-instagram",
+    "footer_active_instagram" => "1",
+
+    "footer_link_discord" => "#",
+    "footer_icon_discord" => "fa-brands fa-discord",
+    "footer_active_discord" => "1",
 
     /* - - - - - - - -
        - - NEWS - -

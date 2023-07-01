@@ -35,10 +35,10 @@ $menus = MenusModel::getInstance();
                                 class="cursor-pointer text-white font-medium rounded-lg px-5 py-2.5 "><i
                                     class="mr-2 fa-solid fa-user"></i>Zomb<!--TODO : Recuperer nom d'user--></li>
                             <div id="dropdown1"
-                                 class="hidden z-10 w-44 rounded divide-y divide-gray-100 shadow bg-gray-600 border border-gray-100">
+                                 class="hidden z-10 w-44 rounded divide-y divide-gray-100 shadow bg-gray-800 border border-gray-400">
                                 <ul class="py-1" aria-labelledby="multiLevelDropdownButton">
                                     <?php if (UsersController::isAdminLogged()) : ?>
-                                        <li>
+                                        <li class="">
                                             <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cmw-admin"
                                                target="_blank" class="block py-2 px-4 text-white"><i
                                                     class="fa-solid fa-screwdriver-wrench"></i> Administration</a>
@@ -79,7 +79,7 @@ $menus = MenusModel::getInstance();
                                     ><?= $menu->getName() ?></a>
                                 </li>
                                 <div id="dropdown-<?= $menu->getId() ?>"
-                                     class="hidden z-10 w-44 rounded divide-y divide-gray-100 shadow bg-gray-600 border border-gray-100">
+                                     class="hidden z-10 w-44 rounded divide-y divide-gray-100 shadow bg-gray-800 border border-gray-100">
                                     <?php foreach ($menus->getSubMenusByMenu($menu->getId()) as $subMenu): ?>
                                         <ul class="py-1" aria-labelledby="multiLevelDropdownButton">
                                             <li>
@@ -90,7 +90,7 @@ $menus = MenusModel::getInstance();
                                                 </a>
                                                 <?php foreach ($menus->getSubMenusByMenu($subMenu->getId()) as $subSubMenu): ?>
                                                 <div id="doubleDropdown<?= $subMenu->getId() ?>"
-                                                     class="hidden z-10 w-44 rounded divide-y bg-gray-600 border border-gray-100 shadow"
+                                                     class="hidden z-10 w-44 rounded divide-y bg-gray-800 border border-gray-100 shadow"
                                                      style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(10px, 300px);"
                                                      data-popper-reference-hidden="" data-popper-escaped=""
                                                      data-popper-placement="right-start">

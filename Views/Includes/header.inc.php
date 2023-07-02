@@ -33,7 +33,7 @@ $menus = MenusModel::getInstance();
                         <ul class=" flex-col rounded-lg md:flex-row md:space-x-8 md:mt-0">
                             <li id="multiLevelDropdownButton" data-dropdown-toggle="dropdown1"
                                 class="cursor-pointer text-white font-medium rounded-lg px-5 py-2.5 "><i
-                                    class="mr-2 fa-solid fa-user"></i>Zomb<!--TODO : Recuperer nom d'user--></li>
+                                    class="mr-2 fa-solid fa-user"></i><?= UsersModel::getCurrentUser()->getPseudo() ?></li>
                             <div id="dropdown1"
                                  class="hidden z-10 w-44 rounded divide-y divide-gray-100 shadow bg-gray-800 border border-gray-400">
                                 <ul class="py-1" aria-labelledby="multiLevelDropdownButton">

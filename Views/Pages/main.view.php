@@ -10,7 +10,7 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$title = Website::getName() . ' - ' . ucfirst($page->getTitle());
+$title = Website::getWebsiteName() . ' - ' . ucfirst($page->getTitle());
 $description = 'Visitez notre page ' . ucfirst($page->getTitle());
 ?>
 

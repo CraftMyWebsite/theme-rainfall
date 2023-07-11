@@ -11,7 +11,7 @@ use CMW\Utils\Website;
 
 <div class="flex justify-between text-gray-400 mt-auto p-2">
     <div class=" text-xs lg:text-base">
-        <p>Copyright © 2022<br>Site créer par <b><a href="https://craftmywebsite.fr/" target="_blank">CraftMyWebsite</a></b> pour <?= Website::getName() ?></p>
+        <p>Copyright © 2022<br>Site créer par <b><a href="https://craftmywebsite.fr/" target="_blank">CraftMyWebsite</a></b> pour <?= Website::getWebsiteName() ?></p>
         <p class="hidden">Credit thème : Z0mblard</p>
     </div>
     <?php if(ThemeModel::fetchConfigValue('footer_active_condition')): ?>

@@ -6,7 +6,7 @@ use CMW\Manager\Security\SecurityManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$title = Website::getName() . ' - ' . ThemeModel::fetchConfigValue('news_title') . ' - ' . $news->getTitle();
+$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('news_title') . ' - ' . $news->getTitle();
 $description = ThemeModel::fetchConfigValue('news_description');
 ?>
 

@@ -3,8 +3,8 @@
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 /*TITRE ET DESCRIPTION*/
-$title = Website::getName() . "- CGU";
-$description = Website::getName() . "CGU";
+$title = Website::getWebsiteName() . "- CGU";
+$description = Website::getWebsiteName() . "CGU";
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

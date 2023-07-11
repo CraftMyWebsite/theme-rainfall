@@ -5,8 +5,8 @@ use CMW\Manager\Lang\LangManager;
 use CMW\Manager\Security\SecurityManager;
 use CMW\Utils\Website;
 
-$title = Website::getName() . ' - Inscription';
-$description = 'Inscrivez-vous sur ' . Website::getName(); ?>
+$title = Website::getWebsiteName() . ' - Inscription';
+$description = 'Inscrivez-vous sur ' . Website::getWebsiteName(); ?>
 <div class="bg-[#18202E] w-full pt-14 pb-4">
     <div class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500">Inscription</div>
 </div>

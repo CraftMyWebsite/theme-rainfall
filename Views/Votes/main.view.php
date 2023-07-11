@@ -7,7 +7,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 /*TITRE ET DESCRIPTION*/
-$title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('vote_title');
+$title = Website::getWebsiteName() . ' - '. ThemeModel::fetchConfigValue('vote_title');
 $description = ThemeModel::fetchConfigValue('vote_description');
 ?>
 

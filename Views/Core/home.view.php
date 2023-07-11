@@ -9,7 +9,7 @@ use CMW\Utils\Website;
 
 /*TITRE ET DESCRIPTION*/
 $title = Website::getWebsiteName() . ' - '. ThemeModel::fetchConfigValue('home_title');
-$description = Website::getDescription();
+$description = Website::getWebsiteDescription();
 ?>
 <div style="background-image: url('<?= ThemeModel::fetchImageLink("home_background") ?>');" class="absolute img_bg w-screen h-screen -z-10">
 

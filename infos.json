@@ -2,7 +2,7 @@
   "author": "Zomb",
   "authors": ["Zomb"],
   "name": "Rainfall",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "cmwVersion": "2.0",
   "packages": [
     "core", 

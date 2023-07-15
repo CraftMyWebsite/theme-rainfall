@@ -9,7 +9,7 @@ use CMW\Utils\Website;
 
 </body>
 
-<div class="flex justify-between text-gray-400 mt-auto p-2">
+<div class="flex justify-between text-gray-400 mt-auto p-2 " style="z-index: 50">
     <div class=" text-xs lg:text-base">
         <p>Copyright © 2022<br>Site créer par <b><a href="https://craftmywebsite.fr/" target="_blank">CraftMyWebsite</a></b> pour <?= Website::getWebsiteName() ?></p>
         <p class="hidden">Credit thème : Z0mblard</p>

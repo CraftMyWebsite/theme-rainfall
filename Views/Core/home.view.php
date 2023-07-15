@@ -11,7 +11,7 @@ use CMW\Utils\Website;
 $title = Website::getWebsiteName() . ' - '. ThemeModel::fetchConfigValue('home_title');
 $description = Website::getWebsiteDescription();
 ?>
-<div style="background-image: url('<?= ThemeModel::fetchImageLink("home_background") ?>');" class="absolute img_bg w-screen h-screen -z-10">
+<div style="background-image: url('<?= ThemeModel::fetchImageLink("home_background") ?>');" class="absolute img_bg w-screen h-screen ">
 
     <div class="layer flex">
         <div class="mx-auto my-auto lg:mt-28 text-center text-white">

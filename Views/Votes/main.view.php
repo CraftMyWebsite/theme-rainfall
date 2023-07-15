@@ -75,9 +75,9 @@ $description = ThemeModel::fetchConfigValue('vote_description');
                             <div class="mt-2 py-2 font-medium">Récompense : <span class="font-bold"><?= $site->getRewards()?->getTitle() ?></span>
                             </div>
                             <div class="pt-4 pb-2">
-                                <button onclick="sendVote('<?= $site->getSiteId() ?>', this)"
+                                <a href="<?= $site->getUrl() ?>" target="_blank"
                                    class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2">Voter
-                                    <i class="fa-solid fa-award"></i></button>
+                                    <i class="fa-solid fa-award"></i></a>
                             </div>
                         </div>
                     </div>

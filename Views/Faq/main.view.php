@@ -68,7 +68,7 @@ $description = ThemeModel::fetchConfigValue('faq_description');
                 </div>
                 <div class="mb-2">
                     <label for="message" class="block mb-2 text-sm font-medium">Votre message :</label>
-                    <textarea id="message" name="content" rows="4" class="block p-2.5 w-full text-sm bg-gray-800 border border-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonjour,"></textarea>
+                    <textarea minlength="50" id="message" name="content" rows="4" class="block p-2.5 w-full text-sm bg-gray-800 border border-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonjour,"></textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 focus:outline-none">Soumettre <i class="fa-solid fa-paper-plane"></i></button>

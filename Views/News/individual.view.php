@@ -151,7 +151,7 @@ $description = ThemeModel::fetchConfigValue('news_description');
                         <?php (new SecurityManager())->insertHiddenToken() ?>
                         <label for="message" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">Votre
                             commentaire :</label>
-                        <textarea name="comments" id="message" rows="4" style="background-color: #18202E !important;"
+                        <textarea minlength="20" name="comments" id="message" rows="4" style="background-color: #18202E !important;"
                                   class="text-white block p-2.5 w-full text-sm rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                                   placeholder="Bonjour,"></textarea>
                         <div class="text-center mt-4">

@@ -40,7 +40,7 @@ $description = 'Contactez nous ' . Website::getWebsiteName(); ?>
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium">Content</label>
-                    <textarea name="content" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>Bonjour,
+                    <textarea minlength="50" name="content" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>Bonjour,
                     </textarea>
                 </div>
                 <?php SecurityController::getPublicData(); ?>

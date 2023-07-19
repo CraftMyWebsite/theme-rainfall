@@ -52,9 +52,7 @@ $description = 'Parfait pour vos demande de support';
                           class="block p-2.5 w-full text-sm bg-gray-800 border border-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Impossible de ..."></textarea>
             </div>
-                <?php if(SupportSettingsModel::getInstance()->getConfig()->getCaptcha()):?>
                     <?php SecurityController::getPublicData(); ?>
-                <?php endif; ?>
             <div class="flex flex-wrap justify-between items-center">
                 <?php if (!$config->visibilityIsDefinedByCustomer()): ?>
                 <div class="flex items-start">

@@ -35,26 +35,65 @@ $description = 'Profil de  ' . $user->getPseudo();
                 <p class="text-center uppercase font-bold">Informations personnel</p>
                 <form class="space-y-6" action="profile/update" method="post">
                     <?php (new SecurityManager())->insertHiddenToken() ?>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium">Votre mail</label>
-                        <input type="email" name="email" id="email" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="<?= $user->getMail() ?>" required>
+                    <div class="md:grid md:grid-cols-2 md:gap-16">
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium">Votre mail</label>
+                            <input type="email" name="email" id="email" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="<?= $user->getMail() ?>" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium">Pseudo / Nom d'affichage</label>
+                            <input type="text" name="pseudo" id="pseudo" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="<?= $user->getPseudo() ?>" required>
+                        </div>
                     </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium">Pseudo / Nom d'affichage</label>
-                        <input type="text" name="pseudo" id="pseudo" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="<?= $user->getPseudo() ?>" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium">Mot de passe</label>
-                        <input type="password" name="password" id="password" placeholder="********" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium">Confirmation</label>
-                        <input type="password" name="passwordVerif" id="passwordVerif" placeholder="********" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <div class="md:grid md:grid-cols-2 md:gap-16">
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium">Mot de passe</label>
+                            <input type="password" name="password" id="password" placeholder="********" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium">Confirmation</label>
+                            <input type="password" name="passwordVerif" id="passwordVerif" placeholder="********" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                        </div>
                     </div>
                     <div class="px-16">
                         <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Appliquer les modifications</button>
                     </div>
                 </form>
+
+
+                <div class="mt-4 border"></div>
+                <p class="text-center uppercase font-bold mt-2">
+                    <?php if ($user->get2Fa()->isEnabled()): ?>
+                        <span style="color: #188c1a;">Sécurité <i class="fa-solid fa-check"></i></span>
+                    <?php else: ?>
+                        <span style="color: #bc2015;">Sécurité <i class="fa-solid fa-triangle-exclamation"></i></span>
+                    <?php endif; ?>
+                </p>
+                <?php if (!$user->get2Fa()->isEnabled()): ?>
+                    <p class="block mb-2 text-sm font-medium">Pour activer l'authentification à double facteur scannez le QR code dans une application
+                        d'authentification (GoogleAuthenticator, Aegis ...)</p>
+                <?php endif; ?>
+                <div class="md:grid md:grid-cols-2 gap-4">
+                    <div class="text-center">
+                        <img class="mx-auto" height="70%" width="70%" src='<?= $user->get2Fa()->getQrCode(250) ?>'
+                             alt="QR Code double authentification">
+                        <span><?= $user->get2Fa()->get2FaSecretDecoded() ?></span>
+                    </div>
+                    <form
+                        action="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>profile/2fa/toggle"
+                        method="post">
+                        <?php (new SecurityManager())->insertHiddenToken() ?>
+                        <div class="mt-2">
+                            <label for="secret" class="block mb-2 text-sm font-medium ">Code d'authentification</label>
+                            <input type="text" name="secret" id="secret" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                        </div>
+                        <div class="text-center mt-2">
+                            <button type="submit" class="bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><?= $user->get2Fa()->isEnabled() ? 'Désactiver' : 'Activer' ?></button>
+                        </div>
+                    </form>
+                </div>
+
+
             </div>
             <div class="md:hidden mt-4 border"></div>
             <div>

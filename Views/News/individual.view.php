@@ -109,7 +109,7 @@ $description = ThemeModel::fetchConfigValue('news_description');
                          class=" rounded-lg shadow md:grid md:grid-cols-5 py-4 pr-4 mb-4">
                         <div class="">
                             <img class="hidden lg:block mx-auto rounded-lg border border-gray-300 shadow-xl"
-                                 src="<?= $comment->getUser()->getUserPicture()->getImageLink() ?>"
+                                 src="<?= $comment->getUser()->getUserPicture()->getImage() ?>"
                                  height="50%" width="50%" alt="...">
                         </div>
                         <div class="col-span-4 px-4 md:px-0">

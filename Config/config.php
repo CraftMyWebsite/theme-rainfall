@@ -198,7 +198,7 @@
                         <h6>Background :</h6>
                         <input class="mt-2 form-control form-control-sm" type="file" id="home_background" name="home_background" accept="png,jpg,jpeg,webp,svg,gif">
                         <span>Fichiers autorisés : png, jpg, jpeg, webp, svg, gif</span>
-                        <img width="1080" height="720" src="<?= ThemeModel::fetchImageLink("home_background") ?>" class="h-full inset-0 object-center object-cover w-full" style="width: 100%; height: 100%; object-fit: cover;" alt="..."/>
+                        <img width="1080" height="720" src="<?= ThemeModel::getInstance()->fetchImageLink("home_background") ?>" class="h-full inset-0 object-center object-cover w-full" style="width: 100%; height: 100%; object-fit: cover;" alt="..."/>
                     </div>
                 </div>
             </div>
@@ -208,7 +208,7 @@
                         <h6>Logo :</h6>
                         <input class="mt-2 form-control form-control-sm" type="file" id="header_img_logo" name="header_img_logo" accept="png,jpg,jpeg,webp,svg,gif">
                         <span>Fichiers autorisés : png, jpg, jpeg, webp, svg, gif</span>
-                        <img width="1080" height="720" src="<?= ThemeModel::fetchImageLink("header_img_logo") ?>" class="h-full inset-0 object-center object-cover w-full" style="width: 100%; height: 100%; object-fit: cover;" alt="..."/>
+                        <img width="1080" height="720" src="<?= ThemeModel::getInstance()->fetchImageLink("header_img_logo") ?>" class="h-full inset-0 object-center object-cover w-full" style="width: 100%; height: 100%; object-fit: cover;" alt="..."/>
                     </div>
                 </div>
             </div>
@@ -577,7 +577,7 @@
                                 <div class="form-group">
                                     <h6>Image :</h6>
                                     <div class="text-center ">
-                                        <img class="w-25" src="<?= ThemeModel::fetchImageLink("forum_nobody_send_message_img") ?>" alt="Image introuvable !">
+                                        <img class="w-25" src="<?= ThemeModel::getInstance()->fetchImageLink("forum_nobody_send_message_img") ?>" alt="Image introuvable !">
                                     </div>
                                     <input class="mt-2 form-control form-control-sm" type="file" id="forum_nobody_send_message_img" name="forum_nobody_send_message_img" accept=".png, .jpg, .jpeg, .webp, .gif">
                                     <span>Fichiers autorisés : png, jpg, jpeg, webp, svg, gif</span>

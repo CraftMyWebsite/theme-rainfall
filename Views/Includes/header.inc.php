@@ -58,11 +58,11 @@ $menus = MenusModel::getInstance();
                             </div>
                         </ul>
                     <?php else: ?>
-                        <?php if (ThemeModel::fetchConfigValue('header_allow_login_button')): ?>
+                        <?php if (ThemeModel::getInstance()->fetchConfigValue('header_allow_login_button')): ?>
                             <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login"
                                class="text-white font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2">Connexion</a>
                         <?php endif; ?>
-                        <?php if (ThemeModel::fetchConfigValue('header_allow_register_button')): ?>
+                        <?php if (ThemeModel::getInstance()->fetchConfigValue('header_allow_register_button')): ?>
                             <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>register"
                                class="text-white font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 ">S'inscrire</a>
                         <?php endif; ?>

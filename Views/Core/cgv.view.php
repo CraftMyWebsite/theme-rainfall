@@ -8,7 +8,7 @@ $description = Website::getWebsiteName() . "CGV";
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">
-    <div class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500"><?= ThemeModel::fetchConfigValue('footer_desc_condition_sale') ?></div>
+    <div class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500"><?= ThemeModel::getInstance()->fetchConfigValue('footer_desc_condition_sale') ?></div>
 </div>
 <div class="custom-shape-divider-top-1667065406">
     <svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -23,16 +23,16 @@ $description = Website::getWebsiteName() . "CGV";
 </div>
 
 <section class="px-4 lg:px-16 py-6">
-    <?php if (ThemeModel::fetchConfigValue('widget_use_cgv')): ?>
+    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_cgv')): ?>
     <div class="lg:grid lg:grid-cols-5 gap-6">
         <div>
             <?php include_once("Public/Themes/Rainfall/Views/Includes/widget.inc.php"); ?>
         </div>
         <?php endif; ?>
-        <section class="bg-[#18202E] rounded-lg shadow h-fit mx-2 <?php if (!ThemeModel::fetchConfigValue('widget_use_cgv')): ?>lg:mx-72<?php endif; ?> col-span-4">
+        <section class="bg-[#18202E] rounded-lg shadow h-fit mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget_use_cgv')): ?>lg:mx-72<?php endif; ?> col-span-4">
             <div class="container p-4">
                 <?= $cgv->getContent() ?>
             </div>
         </section>
-        <?php if (ThemeModel::fetchConfigValue('widget_use_cgv')): ?></div><?php endif; ?>
+        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_cgv')): ?></div><?php endif; ?>
 </section>

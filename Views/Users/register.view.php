@@ -18,7 +18,7 @@ $description = 'Inscrivez-vous sur ' . Website::getWebsiteName(); ?>
     </svg>
 </div>
 
-<?php if(ThemeModel::fetchConfigValue('header_allow_register_button')): ?>
+<?php if(ThemeModel::getInstance()->fetchConfigValue('header_allow_register_button')): ?>
 <div class="mx-auto relative p-4 w-full max-w-md h-full md:h-auto mb-6 mt-6">
     <div class="relative bg-[#18202E] rounded-lg shadow">
         <div class="py-6 px-6 lg:px-8">
@@ -78,7 +78,7 @@ $description = 'Inscrivez-vous sur ' . Website::getWebsiteName(); ?>
     <div class="mx-auto relative p-4 w-full max-w-md h-full md:h-auto mb-6 mt-6">
         <div class="relative bg-[#18202E] rounded-lg shadow">
             <div class="py-6 px-6 lg:px-8">
-                <?= ThemeModel::fetchConfigValue('global_no_register_message') ?>
+                <?= ThemeModel::getInstance()->fetchConfigValue('global_no_register_message') ?>
             </div>
         </div>
     </div>

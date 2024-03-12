@@ -6,8 +6,8 @@ use CMW\Manager\Security\SecurityManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('news_title') . ' - ' . $news->getTitle();
-$description = ThemeModel::fetchConfigValue('news_description');
+$title = Website::getWebsiteName() . ' - ' . ThemeModel::getInstance()->fetchConfigValue('news_title') . ' - ' . $news->getTitle();
+$description = ThemeModel::getInstance()->fetchConfigValue('news_description');
 ?>
 
 <div style="background-color: #18202E !important;" class="w-full pt-14 pb-4">
@@ -30,14 +30,14 @@ $description = ThemeModel::fetchConfigValue('news_description');
 
 
 <section class="px-4 lg:px-16 py-6">
-    <?php if (ThemeModel::fetchConfigValue('widget_use_news')): ?>
+    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_news')): ?>
     <div class="lg:grid lg:grid-cols-5 gap-6">
         <div>
             <?php include_once("Public/Themes/Rainfall/Views/Includes/widget.inc.php"); ?>
         </div>
         <?php endif; ?>
         <div
-            class=" mx-2 <?php if (!ThemeModel::fetchConfigValue('widget_use_news')): ?>lg:mx-72<?php endif; ?> col-span-4">
+            class=" mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget_use_news')): ?>lg:mx-72<?php endif; ?> col-span-4">
             <div class="container">
                 <div class="bg-[#18202E] rounded-lg shadow h-fit p-4">
                     <div class="md:grid md:grid-cols-5 md:gap-16">
@@ -171,5 +171,5 @@ $description = ThemeModel::fetchConfigValue('news_description');
             </div>
         </div>
 
-        <?php if (ThemeModel::fetchConfigValue('widget_use_news')): ?></div><?php endif; ?>
+        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_news')): ?></div><?php endif; ?>
 </section>

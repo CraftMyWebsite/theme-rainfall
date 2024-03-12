@@ -14,12 +14,12 @@ use CMW\Utils\Website;
         <p>Copyright © 2022<br>Site créer par <b><a href="https://craftmywebsite.fr/" target="_blank">CraftMyWebsite</a></b> pour <?= Website::getWebsiteName() ?></p>
         <p class="hidden">Credit thème : Z0mblard</p>
     </div>
-    <?php if(ThemeModel::fetchConfigValue('footer_active_condition')): ?>
+    <?php if(ThemeModel::getInstance()->fetchConfigValue('footer_active_condition')): ?>
         <div class="px-6 md:flex-1">
-            <p><?= ThemeModel::fetchConfigValue('footer_title_condition') ?><br>
-                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgu"><?= ThemeModel::fetchConfigValue('footer_desc_condition_use') ?></a></b>
+            <p><?= ThemeModel::getInstance()->fetchConfigValue('footer_title_condition') ?><br>
+                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgu"><?= ThemeModel::getInstance()->fetchConfigValue('footer_desc_condition_use') ?></a></b>
                 /
-                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgv"><?= ThemeModel::fetchConfigValue('footer_desc_condition_sale') ?></a></b>
+                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgv"><?= ThemeModel::getInstance()->fetchConfigValue('footer_desc_condition_sale') ?></a></b>
             </p>
         </div>
     <?php endif; ?>

@@ -26,7 +26,7 @@ $description = "Découvrez nos futur événements";
 
 <section class="px-4 lg:px-16 py-6">
 
-        <section class="bg-[#18202E] rounded-lg shadow h-fit mx-2 <?php if (!ThemeModel::fetchConfigValue('widget_use_page')): ?>lg:mx-72<?php endif; ?> col-span-4">
+        <section class="bg-[#18202E] rounded-lg shadow h-fit mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget_use_page')): ?>lg:mx-72<?php endif; ?> col-span-4">
             <div class="container p-4 mx-auto">
                 <div id='calendar'></div>
             </div>

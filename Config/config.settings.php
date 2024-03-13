@@ -19,6 +19,7 @@ return [
     "widget_use_news" => "1",
     "widget_use_vote" => "1",
     "widget_use_wiki" => "1",
+    "widget_use_forum" => "1",
 
     "widgets_show_discord" => "1",
     "widgets_content_id" => "(Paramètres serveur > Widget > ID serveur)",

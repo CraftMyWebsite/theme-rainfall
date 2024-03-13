@@ -121,6 +121,12 @@
                                     <label class="form-check-label" for="widget_use_wiki"><h6>Wiki</h6></label>
                                 </div>
                                 <?php endif; ?>
+                                <?php if (PackageController::isInstalled("Forum")): ?>
+                                <div>
+                                    <input class="form-check-input" type="checkbox" value="1" id="widget_use_forum" name="widget_use_forum" <?= ThemeModel::getInstance()->fetchConfigValue('widget_use_forum') ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="widget_use_forum"><h6>Forum</h6></label>
+                                </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

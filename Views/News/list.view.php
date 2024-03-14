@@ -8,8 +8,8 @@ use CMW\Utils\Website;
 $newsList = $newsModel->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news_page_number_display'), 'DESC');
 
 /*TITRE ET DESCRIPTION*/
-$title = Website::getWebsiteName() . ' - '. ThemeModel::getInstance()->fetchConfigValue('news_title');
-$description = ThemeModel::getInstance()->fetchConfigValue('news_description');
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('news_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news_description'));
 ?>
 
 <div style="background-color: #18202E !important;" class="w-full pt-14 pb-4">

@@ -6,8 +6,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getWebsiteName() . " - Code d'authentification ";
-$description = 'Saisissez votre code';
+Website::setTitle("Double facteur");
+Website::setDescription("Activer le double facteur");
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

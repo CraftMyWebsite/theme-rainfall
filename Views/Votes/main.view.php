@@ -7,8 +7,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 /*TITRE ET DESCRIPTION*/
-$title = Website::getWebsiteName() . ' - '. ThemeModel::getInstance()->fetchConfigValue('vote_title');
-$description = ThemeModel::getInstance()->fetchConfigValue('vote_description');
+Website::setTitle("Votez");
+Website::setDescription("Votez, obtenez des points de vote et plein d'autres cadeaux!");
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

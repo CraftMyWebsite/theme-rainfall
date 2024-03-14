@@ -10,8 +10,8 @@ use CMW\Utils\Website;
 
 /* @var CMW\Entity\Support\SupportEntity[] $publicSupport */
 
-$title = Website::getWebsiteName() . ' - Support';
-$description = 'Parfait pour vos demande de support';
+Website::setTitle("Support");
+Website::setDescription("Consultez les réponses de nos experts.");
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

@@ -5,8 +5,8 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$title = Website::getWebsiteName() . ' - Calendrier';
-$description = "Découvrez nos futur événements";
+Website::setTitle("Calendrier");
+Website::setDescription("Découvrez nos futur événements");
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

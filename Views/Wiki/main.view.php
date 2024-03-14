@@ -4,8 +4,8 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$title = Website::getWebsiteName() . ' - '. ThemeModel::getInstance()->fetchConfigValue('wiki_title');
-$description = ThemeModel::getInstance()->fetchConfigValue('wiki_description');
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('wiki_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('wiki_description'));
 ?>
 
 <div style="background-color: #18202E !important;" class="w-full pt-14 pb-4">

@@ -10,8 +10,8 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$title = Website::getWebsiteName() . ' - ' . ucfirst($page->getTitle());
-$description = 'Visitez notre page ' . ucfirst($page->getTitle());
+Website::setTitle(ucfirst($page->getTitle()));
+Website::setDescription(ucfirst($page->getTitle()));
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

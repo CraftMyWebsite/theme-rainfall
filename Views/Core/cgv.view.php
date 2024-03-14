@@ -3,8 +3,8 @@
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 /*TITRE ET DESCRIPTION*/
-$title = Website::getWebsiteName() . "- CGV";
-$description = Website::getWebsiteName() . "CGV";
+Website::setTitle("CGV");
+Website::setDescription("Condition de vente");
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

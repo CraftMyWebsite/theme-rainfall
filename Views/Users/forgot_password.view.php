@@ -6,6 +6,8 @@ use CMW\Controller\Core\SecurityController;
 use CMW\Manager\Security\SecurityManager;
 use CMW\Utils\Website;
 
+Website::setTitle("Mot de passe oublié");
+Website::setDescription("C'est pas très bien d'oublié son mot de passe ...");
  ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

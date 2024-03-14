@@ -5,8 +5,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 /*TITRE ET DESCRIPTION*/
-$title = Website::getWebsiteName(). ' - '. ThemeModel::getInstance()->fetchConfigValue('faq_title');
-$description = ThemeModel::getInstance()->fetchConfigValue('faq_description');
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('faq_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('faq_description'));
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">

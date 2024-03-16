@@ -76,9 +76,9 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
                             <div class="mt-2 py-2 font-medium">Récompense : <span class="font-bold"><?= $site->getRewards()?->getTitle() ?></span>
                             </div>
                             <div class="pt-4 pb-2">
-                                <a href="<?= $site->getUrl() ?>" target="_blank"
+                                <button id="<?= $site->getSiteId() ?>" onclick="sendVote('<?= $site->getSiteId() ?>')"
                                    class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2">Voter
-                                    <i class="fa-solid fa-award"></i></a>
+                                    <i class="fa-solid fa-award"></i></button>
                             </div>
                         </div>
                     </div>
@@ -237,7 +237,3 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
         </section>
         <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_vote')): ?></div><?php endif; ?>
 </section>
-
-<link rel="stylesheet" href="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') . 'Admin/Resources/Vendors/Izitoast/iziToast.min.css' ?>">
-<script src="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') . 'Admin/Resources/Vendors/Izitoast/iziToast.min.js' ?>"></script>
-<script src="<?= ThemeManager::getInstance()->getCurrentTheme()->name() . 'Views/Votes/Resources/Js/VotesLogic.js' ?>"></script>

@@ -175,7 +175,7 @@ Website::setDescription("Consulter les catégorie du Forum");
                             <div class="w-full shadow-md mb-6">
                                 <div class="">
                                     <iframe style="width: 100%"
-                                            src="https://discord.com/widget?id=<?= ThemeModel::getInstance()->fetchConfigValue('forum_widgets_content') ?>&theme=dark"
+                                            src="https://discord.com/widget?id=<?= ThemeModel::getInstance()->fetchConfigValue('forum_widgets_content_id') ?>&theme=dark"
                                             height="400" allowtransparency="true"
                                             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                                 </div>

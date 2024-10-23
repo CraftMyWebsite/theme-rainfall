@@ -5,7 +5,7 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$newsList = $newsModel->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news_page_number_display'), 'DESC');
+$newsList = \CMW\Model\News\NewsModel::getInstance()->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news_page_number_display'), 'DESC');
 
 /*TITRE ET DESCRIPTION*/
 Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('news_title'));

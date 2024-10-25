@@ -1,4 +1,5 @@
-<?php use CMW\Manager\Views\View;
+<?php use CMW\Controller\Core\PackageController;
+use CMW\Manager\Views\View;
 
 /* INCLUDE SCRIPTS / STYLES*/
 /* @var $includes */
@@ -12,6 +13,12 @@ include_once("Includes/header.inc.php");
 
 <?php
 include_once("Includes/footer.inc.php");
+?>
+
+<?php
+if (PackageController::isInstalled('SimpleCookies')) {
+    CMW\Controller\Simplecookies\SimpleCookiesController::getInstance()->showCookieConsent();
+}
 ?>
 
 <?php

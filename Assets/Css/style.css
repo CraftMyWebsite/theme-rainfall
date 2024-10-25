@@ -1214,6 +1214,9 @@ pre {
 .w-56 {
   width: 14rem;
 }
+.w-64 {
+    width: 16rem;
+}
 .w-full {
   width: 100%;
 }
@@ -2382,6 +2385,10 @@ pre {
   .lg\:col-span-3 {
     grid-column: span 3 / span 3;
   }
+
+    .lg\:w-96 {
+        width: 24rem;
+    }
 
   .lg\:mx-72 {
     margin-left: 18rem;

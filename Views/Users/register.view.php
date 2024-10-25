@@ -5,6 +5,8 @@ use CMW\Manager\Lang\LangManager;
 use CMW\Manager\Security\SecurityManager;
 use CMW\Utils\Website;
 
+/* @var \CMW\Interface\Users\IUsersOAuth[] $oAuths */
+
 Website::setTitle("Inscription");
 Website::setDescription("Inscrivez-vous"); ?>
 <div class="bg-[#18202E] w-full pt-14 pb-4">
@@ -49,7 +51,6 @@ Website::setDescription("Inscrivez-vous"); ?>
                 <?php SecurityController::getPublicData(); ?>
                 <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><?= LangManager::translate("users.login.register")?></button>
             </form>
-           <!-- TODO
            <div class="flex flex-no-wrap justify-center items-center py-4">
                 <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                 <div class="px-10 w-auto">
@@ -59,18 +60,15 @@ Website::setDescription("Inscrivez-vous"); ?>
             </div>
             <div class="px-4 py-2 justify-center text-center w-full sm:w-auto">
                 <div class="flex-wrap inline-flex space-x-3">
-                    <a href="#" class="hover:text-blue-600" aria-label="facebook">
-                        <i class="fa-xl fa-brands fa-github"></i>
-                    </a> <a href="#" class="hover:text-blue-600" aria-label="twitter">
-                        <i class="fa-xl fa-brands fa-square-twitter"></i>
-                    </a> <a href="#" class="hover:text-blue-600" aria-label="instagram">
-                        <i class="fa-xl fa-brands fa-instagram"></i>
-                    </a><a href="#" class="hover:text-blue-600" aria-label="discord">
-                        <i class="fa-xl fa-brands fa-discord"></i></a>
-                    <a href="#" class="hover:text-blue-600" aria-label="discord">
-                        <i class="fa-xl fa-brands fa-google"></i></a>
+                    <?php foreach ($oAuths as $oAuth): ?>
+                        <a href="oauth/<?= $oAuth->methodIdentifier() ?>" class="hover:text-blue-600"
+                           aria-label="<?= $oAuth->methodeName() ?>">
+                            <img src="<?= $oAuth->methodeIconLink() ?>"
+                                 alt="<?= $oAuth->methodeName() ?>" width="32" height="32"/>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
-            </div>-->
+            </div>
         </div>
     </div>
 </div>

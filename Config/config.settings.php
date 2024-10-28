@@ -55,6 +55,12 @@ return [
     "footer_icon_discord" => "fa-brands fa-discord",
     "footer_active_discord" => "1",
 
+    /* NEWSLETTER SECTION */
+    'newsletter_section_active' => '1',
+    'newsletter_section_title' => 'NewsLetter',
+    'newsletter_section_description' => 'Abonnez-vous à notre newsletter pour ne louper aucune news !',
+    'newsletter_section_button' => 'S\'abonner !',
+
     /* - - - - - - - -
        - - NEWS - -
     - - - - - - - - - */

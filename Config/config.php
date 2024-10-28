@@ -334,7 +334,29 @@
                      data-value="<?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_discord') ?>"></div>
             </div>
         </div>
-
+        <?php if (PackageController::isInstalled('Newsletter')): ?>
+            <hr>
+            <!--Newsletter-->
+            <div>
+                <label class="toggle">
+                    <h5 class="toggle-label">Newsletter : <i data-bs-toggle="tooltip"
+                                                             title="Vous pouvez activer ou non cette section."
+                                                             class="fa-sharp fa-solid fa-circle-question"></i></h5>
+                    <input type="checkbox" class="toggle-input" id="newsletter_section_active"
+                           name="newsletter_section_active" <?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_active') ? 'checked' : '' ?>>
+                    <div class="toggle-slider"></div>
+                </label>
+            </div>
+            <label for="newsletter_section_title">Titre de la section :</label>
+            <input type="text" class="input" id="newsletter_section_title" name="newsletter_section_title"
+                   value="<?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_title') ?>" required>
+            <label for="newsletter_section_description">Message :</label>
+            <input type="text" class="input" id="newsletter_section_description" name="newsletter_section_description"
+                   value="<?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_description') ?>" required>
+            <label for="newsletter_section_button">Bouton :</label>
+            <input type="text" class="input" id="newsletter_section_button" name="newsletter_section_button"
+                   value="<?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_button') ?>" required>
+        <?php endif; ?>
     </div>
     <div class="tab-content" id="tab3">
         <!---NEWS---->

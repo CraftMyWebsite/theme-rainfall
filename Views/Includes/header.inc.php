@@ -1,12 +1,11 @@
 <?php
 /* @var \CMW\Entity\Users\UserEntity $user */
 
+use CMW\Controller\Users\UsersSessionsController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Controller\Users\UsersController;
 use CMW\Model\Core\MenusModel;
-use CMW\Model\Users\UsersModel;
 use CMW\Model\Core\ThemeModel;
-use CMW\Utils\Website;
 
 $menus = MenusModel::getInstance();
 ?>
@@ -33,7 +32,7 @@ $menus = MenusModel::getInstance();
                         <ul class=" flex-col rounded-lg md:flex-row md:space-x-8 md:mt-0">
                             <li id="multiLevelDropdownButton" data-dropdown-toggle="dropdown1"
                                 class="cursor-pointer text-white font-medium rounded-lg px-5 py-2.5 "><i
-                                    class="mr-2 fa-solid fa-user"></i><?= UsersModel::getCurrentUser()->getPseudo() ?></li>
+                                    class="mr-2 fa-solid fa-user"></i><?= UsersSessionsController::getInstance()->getCurrentUser()->getPseudo() ?></li>
                             <div id="dropdown1"
                                  class="hidden z-10 w-44 rounded divide-y divide-gray-100 shadow bg-gray-800 border border-gray-400">
                                 <ul class="py-1" aria-labelledby="multiLevelDropdownButton">

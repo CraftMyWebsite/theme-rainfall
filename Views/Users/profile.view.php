@@ -34,7 +34,7 @@ Website::setDescription("Éditez votre profil");
             <div>
                 <p class="text-center uppercase font-bold">Informations personnelles</p>
                 <form class="space-y-6" action="profile/update" method="post">
-                    <?php (new SecurityManager())->insertHiddenToken() ?>
+                    <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                     <div class="md:grid md:grid-cols-2 md:gap-16">
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium">Votre mail</label>
@@ -82,7 +82,7 @@ Website::setDescription("Éditez votre profil");
                     <form
                         action="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>profile/2fa/toggle"
                         method="post">
-                        <?php (new SecurityManager())->insertHiddenToken() ?>
+                        <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                         <div class="mt-2">
                             <label for="secret" class="block mb-2 text-sm font-medium ">Code d'authentification</label>
                             <input type="text" name="secret" id="secret" class="bg-gray-800 border border-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
@@ -107,7 +107,7 @@ Website::setDescription("Éditez votre profil");
                 </div>
                 <div>
                     <form action="" method="post" enctype="multipart/form-data">
-                        <?php (new SecurityManager())->insertHiddenToken() ?>
+                        <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                         <label for="password" class="block mb-2 text-sm font-medium">Changer votre image :</label>
                         <div class="flex">
                             <input class="block w-full text-sm rounded-l-lg bg-gray-800 border border-gray-900 cursor-pointer focus:outline-none" type="file" id="pictureProfile" name="pictureProfile" accept=".png, .jpg, .jpeg, .webp, .gif" required>

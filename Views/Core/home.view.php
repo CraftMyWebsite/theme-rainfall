@@ -50,7 +50,7 @@ Website::setDescription(Website::getWebsiteDescription());
             <?php if (PackageController::isInstalled('Newsletter')): ?>
                 <?php if (ThemeModel::getInstance()->fetchConfigValue('newsletter_section_active')): ?>
                     <form action="newsletter" method="post" class="p-8">
-                        <?php (new SecurityManager())->insertHiddenToken() ?>
+                        <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                         <?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_description') ?>
                         <div class="relative mb-6">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

@@ -23,7 +23,7 @@ Website::setDescription("Contactez-nous dès maintenant");?>
     <div class="relative bg-[#18202E] rounded-lg shadow">
         <div class="py-6 px-6 lg:px-8">
             <form class="space-y-6" action="" method="post">
-                <?php (new SecurityManager())->insertHiddenToken() ?>
+                <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                 <div class="grid lg:grid-cols-2 gap-2">
                     <div>
                         <label class="block mb-2 text-sm font-medium">Mail</label>

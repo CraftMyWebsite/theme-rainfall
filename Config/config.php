@@ -248,6 +248,18 @@
                         <img width="1080" height="720" src="<?= ThemeModel::getInstance()->fetchImageLink("home_background") ?>" class="h-full inset-0 object-center object-cover w-full" style="width: 100%; height: 100%; object-fit: cover;" alt="..."/>
                         <div class="drop-img-area" data-input-name="home_background"></div>
                     </div>
+        <div>
+            <div>
+                <label class="toggle">
+                    <p class="toggle-label">Description :</p>
+                    <input type="checkbox" class="toggle-input" id="home_use_desc"
+                           name="home_use_desc" <?= ThemeModel::getInstance()->fetchConfigValue('home_use_desc') ? 'checked' : '' ?>>
+                    <div class="toggle-slider"></div>
+                </label>
+            </div>
+            <input type="text" class="mt-1 input" id="home_desc" name="home_desc"
+                   value="<?= ThemeModel::getInstance()->fetchConfigValue('home_desc') ?>" required>
+        </div>
         <hr>
         <h4>Icônes :</h4>
         <p>Retrouvez les icônes ici : <a href="https://fontawesome.com/search?o=r&m=free" target="_blank">FontAwesome

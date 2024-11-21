@@ -35,6 +35,9 @@ return [
     - - - - - - - - - */
     "home_title" => "Accueil",
 
+    'home_use_desc' => '1',
+    'home_desc' => 'Une super description pour mon site !',
+
     "home_background" => "Config/Default/Img/bg.jpg",
 
     "footer_open_link_new_tab" => "1",

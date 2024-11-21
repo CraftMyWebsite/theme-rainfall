@@ -20,7 +20,9 @@ Website::setDescription(Website::getWebsiteDescription());
         <div class="mx-auto my-auto lg:mt-28 text-center text-white">
             <img class="mx-auto mb-4 lg:mb-12 w-56" src="<?= ThemeModel::getInstance()->fetchImageLink("header_img_logo") ?>" alt="logo introuvable !">
             <div class="font-bold text-5xl lg:text-8xl mb-4"><?= Website::getWebsiteName() ?></div>
-            <div class="text-sm lg:text-lg">Une super description pour mon site !</div>
+            <?php if(ThemeModel::getInstance()->fetchConfigValue('home_use_desc')): ?>
+            <div class="text-sm lg:text-lg"><?= ThemeModel::getInstance()->fetchConfigValue('home_desc') ?></div>
+            <?php endif; ?>
 
             <div class="px-4 py-2 w-full sm:w-auto mt-4 text-4xl">
                 <div class="flex-wrap inline-flex space-x-6">

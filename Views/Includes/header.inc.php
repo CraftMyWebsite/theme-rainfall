@@ -1,11 +1,18 @@
 <?php
 /* @var \CMW\Entity\Users\UserEntity $user */
 
+use CMW\Controller\Core\PackageController;
 use CMW\Controller\Users\UsersSessionsController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Controller\Users\UsersController;
 use CMW\Model\Core\MenusModel;
 use CMW\Model\Core\ThemeModel;
+use CMW\Model\Shop\Cart\ShopCartItemModel;
+use CMW\Utils\Website;
+
+if (PackageController::isInstalled('Shop')) {
+    $itemInCart = ShopCartItemModel::getInstance()->countItemsByUserId(UsersSessionsController::getInstance()->getCurrentUser()?->getId(), session_id());
+}
 
 $menus = MenusModel::getInstance();
 ?>
@@ -48,6 +55,18 @@ $menus = MenusModel::getInstance();
                                            class="block py-2 px-4 text-white"><i class="fa-regular fa-address-card"></i>
                                             Profil</a>
                                     </li>
+                                    <?php if (PackageController::isInstalled('Shop')): ?>
+                                        <li>
+                                            <a href="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/settings"
+                                               class="block py-2 px-4 text-white"><i class="fa-solid fa-gear"></i>
+                                                Paramètres</a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/history"
+                                               class="block py-2 px-4 text-white"><i class="fa-solid fa-clipboard-list"></i>
+                                                Commandes</a>
+                                        </li>
+                                    <?php endif; ?>
                                 </ul>
                                 <div class="py-1">
                                     <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>logout"
@@ -56,6 +75,15 @@ $menus = MenusModel::getInstance();
                                 </div>
                             </div>
                         </ul>
+                        <?php if (PackageController::isInstalled('Shop')): ?>
+                            <div>
+                                <a href="<?= Website::getProtocol() ?>://<?= $_SERVER['SERVER_NAME'] ?><?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/cart" style="display: inline-flex; position: relative; align-items: center; padding: .75rem;font-size: 0.875rem;line-height: 1.25rem">
+                                    <i class="text-lg fa-solid fa-cart-shopping"></i>
+                                    <span class="sr-only">Articles</span>
+                                    <div style="display: inline-flex; position: absolute; top: -0.2rem; right: -0.2rem; justify-content: center; align-items: center;width: 1.2rem; height: 1.2rem; font-size: 0.75rem;line-height: 1rem;font-weight: 700; color: white; background: red; border-radius: 100%"><?= $itemInCart ?></div>
+                                </a>
+                            </div>
+                        <?php endif; ?>
                     <?php else: ?>
                         <?php if (ThemeModel::getInstance()->fetchConfigValue('header_allow_login_button')): ?>
                             <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login"

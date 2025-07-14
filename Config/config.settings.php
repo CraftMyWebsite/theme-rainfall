@@ -1,154 +1,641 @@
 <?php
+use CMW\Manager\Theme\Editor\Entities\EditorMenu;
+use CMW\Manager\Theme\Editor\Entities\EditorType;
+use CMW\Manager\Theme\Editor\Entities\EditorValue;
 
 return [
+    new EditorMenu(
+        title: 'Globaux',
+        key: 'global',
+        scope: null,
+        requiredPackage: null,
+        values: [
+            new EditorValue(
+                title: 'Titre du site (SEO)',
+                themeKey: 'onglet_title',
+                defaultValue: 'Bienvenue',
+                type: EditorType::TEXT
+            ),
+            new EditorValue(
+                title: 'Logo',
+                themeKey: 'header_img_logo',
+                defaultValue: 'Config/Default/Img/logo.png',
+                type: EditorType::IMAGE
+            ),
+            new EditorValue(
+                title: 'Autoriser les enregistrement',
+                themeKey: 'header_allow_register_button',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Autoriser les connexions',
+                themeKey: 'header_allow_login_button',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Message d\'enregistrement interdit',
+                themeKey: 'global_no_register_message',
+                defaultValue: 'Nous somme désolé mais les inscriptions sont pour le moment désactiver.',
+                type: EditorType::TEXT
+            ),
+        ]
+    ),
+    new EditorMenu(
+        title: 'Widget',
+        key: 'widget',
+        scope: null,
+        requiredPackage: null,
+        values: [
+            new EditorValue(
+                title: 'Afficher sur les pages',
+                themeKey: 'widget_use_page',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher sur les CGU',
+                themeKey: 'widget_use_cgu',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher sur les CGV',
+                themeKey: 'widget_use_cgv',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher sur les news',
+                themeKey: 'widget_use_news_list',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher sur l\'article',
+                themeKey: 'widget_use_news',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher sur les votes',
+                themeKey: 'widget_use_vote',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher sur les wiki',
+                themeKey: 'widget_use_wiki',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher sur le forum',
+                themeKey: 'widget_use_forum',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Discord',
+                themeKey: 'widgets_show_discord',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Id serveur Discord',
+                themeKey: 'widgets_content_id',
+                defaultValue: 'ID du serveur',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Personnalisé 1',
+                themeKey: 'widgets_show_custom_1',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Titre personnalisé 1',
+                themeKey: 'widgets_custom_title_1',
+                defaultValue: 'Widget personnaliser 1',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Contenue personnalisé 1',
+                themeKey: 'widgets_custom_text_1',
+                defaultValue: 'Bonjour',
+                type: EditorType::HTML,
+            ),
+            new EditorValue(
+                title: 'Personnalisé 2',
+                themeKey: 'widgets_show_custom_2',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Titre personnalisé 2',
+                themeKey: 'widgets_custom_title_2',
+                defaultValue: 'Widget personnaliser 2',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Contenue personnalisé 2',
+                themeKey: 'widgets_custom_text_2',
+                defaultValue: 'Bonjour',
+                type: EditorType::HTML,
+            ),
+        ]
+    ),
     /* - - - - - - - -
-        - - HEADER & GLOBAL - -
-     - - - - - - - - - */
-    "header_img_logo" => "Config/Default/Img/logo.png",
-    "header_allow_register_button" => "1",
-    "header_allow_login_button" => "1",
-    "global_no_register_message" => "Nous somme désolé mais les inscriptions sont pour le moment désactiver.",
-
-    /* - - - - - - - -
-     - - WIDGETS - -
+       - - HOME - -
     - - - - - - - - - */
-    "widget_use_page" => "1",
-    "widget_use_cgu" => "1",
-    "widget_use_cgv" => "1",
-    "widget_use_news_list" => "1",
-    "widget_use_news" => "1",
-    "widget_use_vote" => "1",
-    "widget_use_wiki" => "1",
-    "widget_use_forum" => "1",
-
-    "widgets_show_discord" => "1",
-    "widgets_content_id" => "(Paramètres serveur > Widget > ID serveur)",
-    "widgets_show_custom_1" => "1",
-    "widgets_custom_title_1" => "Widget personnaliser 1",
-    "widgets_custom_text_1" => "<p>Bonjour !</p>",
-    "widgets_show_custom_2" => "1",
-    "widgets_custom_title_2" => "Widget personnaliser 2",
-    "widgets_custom_text_2" => "<p>Bonjour !</p>",
-
-    /* - - - - - - - -
-    - - HOME PAGE - -
-    - - - - - - - - - */
-    "home_title" => "Accueil",
-
-    'home_use_desc' => '1',
-    'home_desc' => 'Une super description pour mon site !',
-
-    "home_background" => "Config/Default/Img/bg.jpg",
-
-    "footer_open_link_new_tab" => "1",
-
-    "footer_link_facebook" => "#",
-    "footer_icon_facebook" => "fa-brands fa-facebook",
-    "footer_active_facebook" => "1",
-
-    "footer_link_twitter" => "#",
-    "footer_icon_twitter" => "fa-brands fa-square-twitter",
-    "footer_active_twitter" => "1",
-
-    "footer_link_instagram" => "#",
-    "footer_icon_instagram" => "fa-brands fa-instagram",
-    "footer_active_instagram" => "1",
-
-    "footer_link_discord" => "#",
-    "footer_icon_discord" => "fa-brands fa-discord",
-    "footer_active_discord" => "1",
-
-    /* NEWSLETTER SECTION */
-    'newsletter_section_active' => '1',
-    'newsletter_section_title' => 'NewsLetter',
-    'newsletter_section_description' => 'Abonnez-vous à notre newsletter pour ne louper aucune news !',
-    'newsletter_section_button' => 'S\'abonner !',
-
-    /* - - - - - - - -
-       - - NEWS - -
-    - - - - - - - - - */
-    "news_title" => "Nouveautés",
-    "news_description" => "Les dernières actus !",
-    "news_page_title" => "Archives des nouveautés",
-    "news_page_number_display" => "20",
-
-    /* - - - - - - - -
-       - - F.A.Q - -
-    - - - - - - - - - */
-    "faq_title" => "FAQ",
-    "faq_description" => "Retrouvez toutes les réponses à vos questions",
-    "faq_page_title" => "F.A.Q",
-    "faq_question_title" => "Une question ?",
-    "faq_answer_title" => "Des réponses",
-    "faq_display_autor" => "1",
-    "faq_display_form" => "1",
-
-    /* - - - - - - - -
-       - - VOTES - -
-    - - - - - - - - - */
-    "vote_title" => "Votes",
-    "vote_description" => "Votez pour le serveur et gagnez des récompenses uniques !",
-    "votes_page_title" => "Voter",
-    "votes_participate_title" => "Participer",
-    "votes_top_10_title" => "Top 10 du mois",
-    "votes_top_10_global_title" => "Top 10 global",
-    "votes_display_global" => "1",
-
-    /* - - - - - - - -
-       - - WIKI - -
-    - - - - - - - - - */
-    "wiki_title" => "Wiki",
-    "wiki_description" => "Découvrez notre wiki !",
-    "wiki_page_title" => "Wiki",
-    "wiki_menu_title" => "Navigation",
-    "wiki_display_categorie_icon" => "1",
-    "wiki_display_article_categorie_icon" => "1",
-    "wiki_display_article_icon" => "1",
-    "wiki_display_creation_date" => "1",
-    "wiki_display_edit_date" => "1",
-    "wiki_display_autor" => "1",
-
-    /* - - - - - - - -
-       - - FORUM - -
-    - - - - - - - - - */
-    "forum_title" => "Forum",
-    "forum_description" => "Parcourez notre forum",
-    "forum_use_widgets" => "1",
-    "forum_widgets_show_stats" => "1",
-    "forum_widgets_title_stats" => "Stats du forum",
-    "forum_widgets_show_member" => "1",
-    "forum_widgets_text_member" => "Membres totaux :",
-    "forum_widgets_show_messages" => "1",
-    "forum_widgets_text_messages" => "Messages totaux :",
-    "forum_widgets_show_topics" => "1",
-    "forum_widgets_text_topics" => "Nombres de topics :",
-    "forum_widgets_show_discord" => "1",
-    "forum_widgets_content_id" => "(Paramètres serveur > Widget > ID serveur)",
-    "forum_widgets_show_custom" => "1",
-    "forum_widgets_custom_title" => "Widget personnaliser",
-    "forum_widgets_custom_text" => "<p>Bonjour !</p>",
-
-    "forum_breadcrumb_home" => "Accueil",
-    "forum_btn_create_topic_icon" => "fa-solid fa-pen-to-square",
-    "forum_btn_create_topic" => "Créer un topic",
-
-    "forum_sub_forum" => "Sous-Forums",
-    "forum_topics" => "Topics",
-    "forum_message" => "Messages",
-    "forum_last_message" => "Dernier messages",
-    "forum_display" => "Affichages",
-    "forum_response" => "Réponses",
-
-    "forum_nobody_send_message_img" => "Config/Default/Img/Forum/nobody.png",
-    "forum_nobody_send_message_text" => "Aucun message",
-
-    /* - - - - - - - -
-       - - FOOTER - -
-    - - - - - - - - - */
-    "footer_year" => "2023",
-
-    "footer_title_condition" => "Conditions",
-    "footer_desc_condition_use" => "CGU",
-    "footer_desc_condition_sale" => "CGV",
-    "footer_active_condition" => "1",
+    new EditorMenu(
+        title: 'Accueil',
+        key: 'home',
+        scope: null,
+        requiredPackage: null,
+        values: [
+            new EditorValue(
+                title: 'Titre',
+                themeKey: 'home_title',
+                defaultValue: 'Accueil',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Afficher la description',
+                themeKey: 'home_use_desc',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Description',
+                themeKey: 'home_desc',
+                defaultValue: 'Une super description pour mon site !',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Image de fond',
+                themeKey: 'home_background',
+                defaultValue: 'Config/Default/Img/bg.jpg',
+                type: EditorType::IMAGE
+            ),
+            new EditorValue(
+                title: 'Liens dans un nouvel onglet',
+                themeKey: 'footer_open_link_new_tab',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Activer Facebook',
+                themeKey: 'footer_active_facebook',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'URL Facebook',
+                themeKey: 'footer_link_facebook',
+                defaultValue: '#',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Icon Facebook',
+                themeKey: 'footer_icon_facebook',
+                defaultValue: 'fa-brands fa-facebook',
+                type: EditorType::FONTAWESOMEPICKER,
+            ),
+            new EditorValue(
+                title: 'Activer X',
+                themeKey: 'footer_active_twitter',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'URL X',
+                themeKey: 'footer_link_twitter',
+                defaultValue: '#',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Icon X',
+                themeKey: 'footer_icon_twitter',
+                defaultValue: 'fa-brands fa-x',
+                type: EditorType::FONTAWESOMEPICKER,
+            ),
+            new EditorValue(
+                title: 'Activer Instagram',
+                themeKey: 'footer_active_instagram',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'URL Instagram',
+                themeKey: 'footer_link_instagram',
+                defaultValue: '#',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Icon Instagram',
+                themeKey: 'footer_icon_instagram',
+                defaultValue: 'fa-brands fa-instagram',
+                type: EditorType::FONTAWESOMEPICKER,
+            ),
+            new EditorValue(
+                title: 'Activer Discord',
+                themeKey: 'footer_active_discord',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'URL Discord',
+                themeKey: 'footer_link_discord',
+                defaultValue: '#',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Icon Discord',
+                themeKey: 'footer_icon_discord',
+                defaultValue: 'fa-brands fa-discord',
+                type: EditorType::FONTAWESOMEPICKER,
+            ),
+        ]
+    ),
+    new EditorMenu(
+        title: 'Accueil - Newsletter',
+        key: 'home-newsletter',
+        scope: null,
+        requiredPackage: 'newsletter',
+        values: [
+            new EditorValue(
+                title: 'Activer la section',
+                themeKey: 'newsletter_section_active',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Titre',
+                themeKey: 'newsletter_section_title',
+                defaultValue: 'NewsLetter',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Description',
+                themeKey: 'newsletter_section_description',
+                defaultValue: 'Abonnez-vous à notre newsletter pour ne louper aucune news !',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Bouton',
+                themeKey: 'newsletter_section_button',
+                defaultValue: 'S\'abonner !',
+                type: EditorType::TEXT,
+            ),
+        ]
+    ),
+    new EditorMenu(
+        title: 'Nouveautés',
+        key: 'news',
+        scope: 'news',
+        requiredPackage: 'news',
+        values: [
+            new EditorValue(
+                title: 'Titre de la page',
+                themeKey: 'news_page_title',
+                defaultValue: 'Actualités',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Description de la page',
+                themeKey: 'news_page_desc',
+                defaultValue: 'Les dernières actus !',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'News à afficher',
+                themeKey: 'news_page_number_display',
+                defaultValue: '20',
+                type: EditorType::NUMBER,
+            ),
+        ]
+    ),
+    new EditorMenu(
+        title: 'F.A.Q',
+        key: 'faq',
+        scope: 'faq',
+        requiredPackage: 'faq',
+        values: [
+            new EditorValue(
+                title: 'Titre de la page',
+                themeKey: 'faq_page_title',
+                defaultValue: 'F.A.Q',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Description de la page',
+                themeKey: 'faq_description',
+                defaultValue: 'Consultez notre F.A.Q',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Titre Questions',
+                themeKey: 'faq_question_title',
+                defaultValue: 'Une question ?',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Titre Réponses',
+                themeKey: 'faq_answer_title',
+                defaultValue: 'Des réponses',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Afficher l\'auteur',
+                themeKey: 'faq_display_autor',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher le formulaire de contact',
+                themeKey: 'faq_display_form',
+                defaultValue: '0',
+                type: EditorType::BOOLEAN,
+            ),
+        ]
+    ),
+    new EditorMenu(
+        title: 'Votes',
+        key: 'votes',
+        scope: 'vote',
+        requiredPackage: 'votes',
+        values: [
+            new EditorValue(
+                title: 'Titre de la page',
+                themeKey: 'votes_page_title',
+                defaultValue: 'Voter',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Description de la page',
+                themeKey: 'vote_description',
+                defaultValue: 'Obtenez des récompenses unique !',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Titre Participer',
+                themeKey: 'votes_participate_title',
+                defaultValue: 'Participer',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Afficher les votes globaux',
+                themeKey: 'votes_display_global',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+        ]
+    ),
+    new EditorMenu(
+        title: 'Wiki',
+        key: 'wiki',
+        scope: 'wiki',
+        requiredPackage: 'wiki',
+        values: [
+            new EditorValue(
+                title: 'Titre de la page',
+                themeKey: 'wiki_page_title',
+                defaultValue: 'Wiki',
+                type: EditorType::TEXT,
+            ), new EditorValue(
+                title: 'Description de la page',
+                themeKey: 'wiki_description',
+                defaultValue: 'Apprenez comment fonctionne ',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Navigation',
+                themeKey: 'wiki_menu_title',
+                defaultValue: 'Navigation',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Afficher les icons des cats',
+                themeKey: 'wiki_display_categorie_icon',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher les icons des articles',
+                themeKey: 'wiki_display_article_categorie_icon',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher les icons des articles',
+                themeKey: 'wiki_display_article_icon',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher la date du wiki',
+                themeKey: 'wiki_display_creation_date',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher la date d\'édition',
+                themeKey: 'wiki_display_edit_date',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Afficher l\'auteur',
+                themeKey: 'wiki_display_autor',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+        ]
+    ),
+    new EditorMenu(
+        title: 'Forum',
+        key: 'forum',
+        scope: 'forum',
+        requiredPackage: 'forum',
+        values: [
+            new EditorValue(
+                title: 'Activer le widget',
+                themeKey: 'forum_use_widgets',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Widget - Stats',
+                themeKey: 'forum_widgets_show_stats',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Widget - Stats : Titre',
+                themeKey: 'forum_widgets_title_stats',
+                defaultValue: 'Stats du forum',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Widget - Membres',
+                themeKey: 'forum_widgets_show_member',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Widget - Membres : Titre',
+                themeKey: 'forum_widgets_text_member',
+                defaultValue: 'Membres totaux :',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Widget - Messages',
+                themeKey: 'forum_widgets_show_messages',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Widget - Messages : Titre',
+                themeKey: 'forum_widgets_text_messages',
+                defaultValue: 'Messages totaux :',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Widget - Topics',
+                themeKey: 'forum_widgets_show_topics',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Widget - Topics : Titre',
+                themeKey: 'forum_widgets_text_topics',
+                defaultValue: 'Nombres de topics :',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Widget - Discord',
+                themeKey: 'forum_widgets_show_discord',
+                defaultValue: '0',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Widget - Discord : API',
+                themeKey: 'forum_widgets_content_id',
+                defaultValue: '(Paramètres serveur > Widget > ID serveur)',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Widget - Custom',
+                themeKey: 'forum_widgets_show_custom',
+                defaultValue: '0',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Widget - Custom : Titre',
+                themeKey: 'forum_widgets_custom_title',
+                defaultValue: 'Widget personnaliser',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Widget - Custom : Contenue',
+                themeKey: 'forum_widgets_custom_text',
+                defaultValue: '<p>Bonjour !</p>',
+                type: EditorType::HTML,
+            ),
+            new EditorValue(
+                title: 'Menu Accueil',
+                themeKey: 'forum_breadcrumb_home',
+                defaultValue: 'Accueil',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Icon bouton création topic',
+                themeKey: 'forum_btn_create_topic_icon',
+                defaultValue: 'fa-solid fa-pen-to-square',
+                type: EditorType::FONTAWESOMEPICKER,
+            ),
+            new EditorValue(
+                title: 'Texte bouton création topic',
+                themeKey: 'forum_btn_create_topic',
+                defaultValue: 'Créer un topic',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Titre page sous-forum',
+                themeKey: 'forum_sub_forum',
+                defaultValue: 'Sous-Forums',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Titre page topics',
+                themeKey: 'forum_topics',
+                defaultValue: 'Topics',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Titre page message',
+                themeKey: 'forum_message',
+                defaultValue: 'Messages',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Dernier messages',
+                themeKey: 'forum_last_message',
+                defaultValue: 'Dernier messages',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Affichages',
+                themeKey: 'forum_display',
+                defaultValue: 'Affichages',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Réponses',
+                themeKey: 'forum_response',
+                defaultValue: 'Réponses',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Forum vide : Message',
+                themeKey: 'forum_nobody_send_message_text',
+                defaultValue: 'Aucun message',
+                type: EditorType::TEXT,
+            ),
+        ]
+    ),
+    new EditorMenu(
+        title: 'Footer',
+        key: 'footer',
+        scope: null,
+        requiredPackage: null,
+        values: [
+            new EditorValue(
+                title: 'Afficher les CGU/CGV',
+                themeKey: 'footer_active_condition',
+                defaultValue: '1',
+                type: EditorType::BOOLEAN,
+            ),
+            new EditorValue(
+                title: 'Titre conditions',
+                themeKey: 'footer_title_condition',
+                defaultValue: 'Conditions',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'CGU',
+                themeKey: 'footer_desc_condition_use',
+                defaultValue: 'CGU',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'CGV',
+                themeKey: 'footer_desc_condition_sale',
+                defaultValue: 'CGV',
+                type: EditorType::TEXT,
+            ),
+        ]
+    ),
 ];

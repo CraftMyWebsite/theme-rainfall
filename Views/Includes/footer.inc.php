@@ -11,18 +11,16 @@ use CMW\Utils\Website;
 
 <div class="flex justify-between text-gray-400 mt-auto p-2 " style="z-index: 50">
     <div class=" text-xs lg:text-base">
-        <p>Copyright © 2022<br>Site créer par <b><a href="https://craftmywebsite.fr/" target="_blank">CraftMyWebsite</a></b> pour <?= Website::getWebsiteName() ?></p>
+        <p>Copyright © <?= date('Y') ?><br>Site créé par <b><a href="https://craftmywebsite.fr/" target="_blank">CraftMyWebsite</a></b> pour <?= Website::getWebsiteName() ?></p>
         <p class="hidden">Credit thème : Z0mblard</p>
     </div>
-    <?php if(ThemeModel::getInstance()->fetchConfigValue('footer_active_condition')): ?>
-        <div class="px-6 md:flex-1">
-            <p><?= ThemeModel::getInstance()->fetchConfigValue('footer_title_condition') ?><br>
-                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgu"><?= ThemeModel::getInstance()->fetchConfigValue('footer_desc_condition_use') ?></a></b>
+        <div data-cmw-visible="footer:footer_active_condition" class="px-6 md:flex-1">
+            <p data-cmw="footer:footer_title_condition"><br>
+                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgu" data-cmw="footer:footer_desc_condition_use"></a></b>
                 /
-                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgv"><?= ThemeModel::getInstance()->fetchConfigValue('footer_desc_condition_sale') ?></a></b>
+                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgv" data-cmw="footer:footer_desc_condition_sale"></a></b>
             </p>
         </div>
-    <?php endif; ?>
 </div>
 </html>
 

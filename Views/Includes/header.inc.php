@@ -6,7 +6,6 @@ use CMW\Controller\Users\UsersSessionsController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Controller\Users\UsersController;
 use CMW\Model\Core\MenusModel;
-use CMW\Model\Core\ThemeModel;
 use CMW\Model\Shop\Cart\ShopCartItemModel;
 use CMW\Utils\Website;
 
@@ -85,14 +84,10 @@ $menus = MenusModel::getInstance();
                             </div>
                         <?php endif; ?>
                     <?php else: ?>
-                        <?php if (ThemeModel::getInstance()->fetchConfigValue('header_allow_login_button')): ?>
-                            <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login"
+                            <a data-cmw-visible="global:header_allow_login_button" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login"
                                class="text-white font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2">Connexion</a>
-                        <?php endif; ?>
-                        <?php if (ThemeModel::getInstance()->fetchConfigValue('header_allow_register_button')): ?>
-                            <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>register"
+                            <a data-cmw-visible="global:header_allow_register_button" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>register"
                                class="text-white font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 ">S'inscrire</a>
-                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
 

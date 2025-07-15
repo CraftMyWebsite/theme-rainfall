@@ -9,7 +9,7 @@ use CMW\Utils\Website;
 
 
 /*TITRE ET DESCRIPTION*/
-Website::setTitle(Website::getWebsiteName());
+Website::setTitle(Website::getWebsiteDescription());
 Website::setDescription(Website::getWebsiteDescription());
 ?>
 <div data-cmw-style="background:home:home_background" style="background: no-repeat ;background-size: cover;" class="absolute img_bg w-screen h-screen ">
@@ -37,7 +37,6 @@ Website::setDescription(Website::getWebsiteDescription());
                 </div>
             </div>
             <?php if (PackageController::isInstalled('Newsletter')): ?>
-                <?php if (ThemeModel::getInstance()->fetchConfigValue('')): ?>
                     <form data-cmw-visible="home-newsletter:newsletter_section_active" action="newsletter" method="post" class="p-8">
                         <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                         <p data-cmw="home-newsletter:newsletter_section_description"></p>
@@ -56,7 +55,6 @@ Website::setDescription(Website::getWebsiteDescription());
                             </button>
                         </div>
                     </form>
-                <?php endif; ?>
             <?php endif; ?>
         </div>
     </div>

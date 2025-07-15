@@ -1,7 +1,5 @@
 <?php
 
-use CMW\Manager\Env\EnvManager;
-use CMW\Model\Core\ThemeModel;
 use CMW\Controller\Core\SecurityController;
 use CMW\Manager\Security\SecurityManager;
 use CMW\Utils\Website;

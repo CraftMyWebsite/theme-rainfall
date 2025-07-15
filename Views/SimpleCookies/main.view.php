@@ -25,16 +25,16 @@ Website::setDescription('Découvrez pourquoi on à besoin de cookies !');
 </div>
 
 <section class="px-4 lg:px-16 py-6">
-    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_page')): ?>
+    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_page')): ?>
     <div class="lg:grid lg:grid-cols-5 gap-6">
         <div>
             <?php include_once("Public/Themes/Rainfall/Views/Includes/widget.inc.php"); ?>
         </div>
         <?php endif; ?>
-        <section class="bg-[#18202E] rounded-lg shadow h-fit mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget_use_page')): ?>lg:mx-72<?php endif; ?> col-span-4">
+        <section class="bg-[#18202E] rounded-lg shadow h-fit mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_page')): ?>lg:mx-72<?php endif; ?> col-span-4">
             <div class="container p-4">
                 <?= $content ?>
             </div>
         </section>
-        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_page')): ?></div><?php endif; ?>
+        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_page')): ?></div><?php endif; ?>
 </section>

@@ -15,7 +15,7 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">
-    <div class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500"><?= ThemeModel::getInstance()->fetchConfigValue('votes_page_title') ?></div>
+    <div class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500" data-cmw="votes:votes_page_title"></div>
 </div>
 <div class="custom-shape-divider-top-1667065406">
     <svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -30,21 +30,20 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
 </div>
 
 <section class="px-4 lg:px-16 py-6">
-    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_vote')): ?>
+    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_vote')): ?>
     <div class="lg:grid lg:grid-cols-5 gap-6">
         <div>
             <?php include_once("Public/Themes/Rainfall/Views/Includes/widget.inc.php"); ?>
         </div>
         <?php endif; ?>
 
-        <section class="px-2 mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget_use_vote')): ?>lg:mx-72<?php endif; ?> col-span-4">
+        <section class="px-2 mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_vote')): ?>lg:mx-72<?php endif; ?> col-span-4">
             <div class="lg:grid lg:grid-cols-3 gap-6">
                 <div class="bg-[#18202E] container mx-auto rounded-md shadow-lg p-8 h-fit">
                     <div class="flex flex-no-wrap justify-center items-center py-4">
                         <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                         <div class="px-10 w-auto">
-                            <h2 class="font-semibold text-2xl uppercase"><?=
-                                ThemeModel::getInstance()->fetchConfigValue('votes_participate_title') ?></h2>
+                            <h2 class="font-semibold text-2xl uppercase" data-cmw="votes:votes_participate_title"></h2>
                         </div>
                         <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                     </div>
@@ -162,8 +161,7 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
                     </div>
                 </div>
             </div>
-            <?php if(ThemeModel::getInstance()->fetchConfigValue('votes_display_global')): ?>
-            <div class="md:px-16 xl:px-28 2xl:px-48 mt-4">
+            <div data-cmw-visible="votes:votes_display_global" class="md:px-16 xl:px-28 2xl:px-48 mt-4">
                 <div class="bg-[#18202E] container mx-auto rounded-md shadow-lg p-8">
                     <div class="flex flex-no-wrap justify-center items-center py-4">
                         <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
@@ -233,7 +231,6 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
 
                 </div>
             </div>
-            <?php endif; ?>
         </section>
-        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_vote')): ?></div><?php endif; ?>
+        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_vote')): ?></div><?php endif; ?>
 </section>

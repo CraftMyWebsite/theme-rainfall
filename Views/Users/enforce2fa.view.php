@@ -4,7 +4,6 @@
 
 use CMW\Manager\Env\EnvManager;
 use CMW\Manager\Security\SecurityManager;
-use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 Website::setTitle("Double facteur obligatoire");

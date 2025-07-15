@@ -5,12 +5,12 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 /*TITRE ET DESCRIPTION*/
-Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('faq_title'));
-Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('faq_description'));
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('faq','faq_page_title'));
+Website::setDescription('');
 ?>
 
 <div class="bg-[#18202E] w-full pt-14 pb-4">
-    <div class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500"><?= ThemeModel::getInstance()->fetchConfigValue('faq_page_title') ?></div>
+    <div class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500" data-cmw="faq:faq_page_title"></div>
 </div>
 <div class="custom-shape-divider-top-1667065406">
     <svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -25,13 +25,12 @@ Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('faq_descrip
 </div>
 
 <section class="px-2 md:px-24 xl:px-48 2xl:px-72 py-6">
-    <div class="<?php if(ThemeModel::getInstance()->fetchConfigValue('faq_display_form')): {echo "lg:grid lg:grid-cols-3 gap-6";} endif ?>">
-        <?php if(ThemeModel::getInstance()->fetchConfigValue('faq_display_form')): ?>
-        <div style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg p-8">
+    <div class="<?php if(ThemeModel::getInstance()->fetchConfigValue('faq','faq_display_form')): {echo "lg:grid lg:grid-cols-3 gap-6";} endif ?>">
+        <div data-cmw-visible="faq:faq_display_form" style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg p-8">
             <div class="flex flex-no-wrap justify-center items-center py-4">
                 <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                 <div class="px-10 w-auto">
-                    <h2 class="font-semibold text-2xl uppercase">Une question ?</h2>
+                    <h2 class="font-semibold text-2xl uppercase" data-cmw="faq:faq_question_title"></h2>
                 </div>
                 <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
             </div>
@@ -75,13 +74,12 @@ Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('faq_descrip
                 </div>
             </form>
         </div>
-        <?php endif; ?>
         <div class="col-span-2">
             <div style="background-color: #18202E !important;" class="container mx-auto rounded-md shadow-lg p-8">
                 <div class="flex flex-no-wrap justify-center items-center py-4">
                     <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                     <div class="px-10 w-auto">
-                        <h2 class="font-semibold text-2xl uppercase"><?= ThemeModel::getInstance()->fetchConfigValue('faq_answer_title') ?></h2>
+                        <h2 class="font-semibold text-2xl uppercase" data-cmw="faq:faq_answer_title"></h2>
                     </div>
                     <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
                 </div>
@@ -89,9 +87,7 @@ Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('faq_descrip
                 <div class="border-b py-2">
                     <div class="flex flex-wrap justify-between">
                         <div class="font-medium">- <?= $faq->getQuestion() ?> :</div>
-                        <?php if(ThemeModel::getInstance()->fetchConfigValue('faq_display_autor')): ?>
-                        <div class="bg-gray-500 font-medium inline-block px-3 py-1 rounded-sm text-xs uppercase"><?= $faq->getAuthor()->getPseudo() ?></div>
-                        <?php endif; ?>
+                        <div data-cmw-visible="faq:faq_display_autor" class="bg-gray-500 font-medium inline-block px-3 py-1 rounded-sm text-xs uppercase"><?= $faq->getAuthor()->getPseudo() ?></div>
                     </div>
                     <div class="ml-4"><?= $faq->getResponse() ?></div>
                 </div>

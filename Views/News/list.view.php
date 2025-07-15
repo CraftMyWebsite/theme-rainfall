@@ -5,15 +5,15 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$newsList = \CMW\Model\News\NewsModel::getInstance()->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news_page_number_display'), 'DESC');
+$newsList = \CMW\Model\News\NewsModel::getInstance()->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news','news_page_number_display'), 'DESC');
 
 /*TITRE ET DESCRIPTION*/
-Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('news_title'));
-Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news_description'));
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('news','news_page_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news','news_page_desc'));
 ?>
 
 <div style="background-color: #18202E !important;" class="w-full pt-14 pb-4">
-    <div class="text-center pt-4 font-bold text-4xl border-t border-gray-500"><?= ThemeModel::getInstance()->fetchConfigValue('news_page_title') ?></div>
+    <div class="text-center pt-4 font-bold text-4xl border-t border-gray-500" data-cmw="news:news_page_title"></div>
 </div>
 <div class="custom-shape-divider-top-1667065406">
     <svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -30,7 +30,7 @@ Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news_descri
 <section class="px-4 lg:px-16 py-6">
 
 
-    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_news_list')): ?>
+    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_news_list')): ?>
     <div class="lg:grid lg:grid-cols-5 gap-6">
         <div>
             <?php include_once("Public/Themes/Rainfall/Views/Includes/widget.inc.php"); ?>
@@ -38,7 +38,7 @@ Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news_descri
         <?php endif; ?>
 
 
-        <div class="lg:grid lg:grid-cols-2 col-span-4 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget_use_news_list')): ?>lg:mx-72<?php endif; ?> gap-6 mt-4 lg:mt-0 h-fit">
+        <div class="lg:grid lg:grid-cols-2 col-span-4 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_news_list')): ?>lg:mx-72<?php endif; ?> gap-6 mt-4 lg:mt-0 h-fit">
             <?php foreach ($newsList as $news): ?>
             <div style="background-color: #18202E !important;"
                  class="mb-4 lg:mb-0 flex flex-wrap h-full overflow-hidden rounded-md shadow-lg">
@@ -87,6 +87,5 @@ Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news_descri
             </div>
             <?php endforeach; ?>
         </div>
-        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_news_list')): ?></div><?php endif; ?>
-
+        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_news_list')): ?></div><?php endif; ?>
 </section>

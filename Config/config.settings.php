@@ -330,12 +330,6 @@ return [
                 type: EditorType::TEXT,
             ),
             new EditorValue(
-                title: 'Description de la page',
-                themeKey: 'faq_description',
-                defaultValue: 'Consultez notre F.A.Q',
-                type: EditorType::TEXT,
-            ),
-            new EditorValue(
                 title: 'Titre Questions',
                 themeKey: 'faq_question_title',
                 defaultValue: 'Une question ?',
@@ -374,12 +368,6 @@ return [
                 type: EditorType::TEXT,
             ),
             new EditorValue(
-                title: 'Description de la page',
-                themeKey: 'vote_description',
-                defaultValue: 'Obtenez des récompenses unique !',
-                type: EditorType::TEXT,
-            ),
-            new EditorValue(
                 title: 'Titre Participer',
                 themeKey: 'votes_participate_title',
                 defaultValue: 'Participer',
@@ -407,7 +395,7 @@ return [
             ), new EditorValue(
                 title: 'Description de la page',
                 themeKey: 'wiki_description',
-                defaultValue: 'Apprenez comment fonctionne ',
+                defaultValue: 'Notre super Wiki !',
                 type: EditorType::TEXT,
             ),
             new EditorValue(

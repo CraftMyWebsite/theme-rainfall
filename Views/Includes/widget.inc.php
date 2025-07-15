@@ -6,7 +6,7 @@
         <div class="w-full shadow-md mb-6">
             <div class="">
                 <iframe style="width: 100%"
-                        src="https://discord.com/widget?id=<?= ThemeModel::getInstance()->fetchConfigValue('widget','widgets_content') ?>&theme=dark"
+                        src="https://discord.com/widget?id=<?= ThemeModel::getInstance()->fetchConfigValue('widget','widgets_content_id') ?>&theme=dark"
                         height="300" allowtransparency="true"
                         sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
             </div>

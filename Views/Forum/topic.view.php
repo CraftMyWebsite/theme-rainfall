@@ -30,7 +30,7 @@ $i = 0;
 ?>
 <div class="bg-[#18202E] w-full pt-14 pb-4">
     <div
-        class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500"><?= ThemeModel::getInstance()->fetchConfigValue('forum_title') ?></div>
+        class="text-center pt-4 font-extrabold text-4xl border-t border-gray-500" data-cmw="forum:forum_title"></div>
 </div>
 <div class="custom-shape-divider-top-1667065406">
     <svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -48,14 +48,14 @@ $i = 0;
 </div>
 
 <section class="px-4 lg:px-16 py-6">
-    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_forum')): ?>
+    <?php if (ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_forum')): ?>
     <div class="lg:grid lg:grid-cols-5 gap-6">
         <div>
             <?php include_once("Public/Themes/Rainfall/Views/Includes/widget.inc.php"); ?>
         </div>
         <?php endif; ?>
         <section
-            class="bg-[#18202E] rounded-lg shadow h-fit mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget_use_forum')): ?>lg:mx-72<?php endif; ?> col-span-4">
+            class="bg-[#18202E] rounded-lg shadow h-fit mx-2 <?php if (!ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_forum')): ?>lg:mx-72<?php endif; ?> col-span-4">
             <section>
                 <section class="lg:grid grid-cols-4 gap-6 p-6">
                     <div class="col-span-3">
@@ -63,8 +63,7 @@ $i = 0;
                             <ol class="inline-flex items-center space-x-1">
                                 <li class="inline-flex items-center">
                                     <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>forum"
-                                       class="inline-flex items-center text-sm font-medium hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-                                        <?= ThemeModel::getInstance()->fetchConfigValue('forum_breadcrumb_home') ?>
+                                       class="inline-flex items-center text-sm font-medium hover:text-blue-600 dark:text-gray-400 dark:hover:text-white" data-cmw="forum:forum_breadcrumb_home">
                                     </a>
                                 </li>
                                 <li>
@@ -796,7 +795,7 @@ $i = 0;
                     </div>
                 </section>
             </section>
-        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget_use_forum')): ?></div><?php endif; ?>
+        <?php if (ThemeModel::getInstance()->fetchConfigValue('widget','widget_use_forum')): ?></div><?php endif; ?>
 </section>
 
 <link rel="stylesheet"

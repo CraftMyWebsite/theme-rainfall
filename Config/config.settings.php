@@ -511,7 +511,7 @@ return [
             new EditorValue(
                 title: 'Widget - Discord : API',
                 themeKey: 'forum_widgets_content_id',
-                defaultValue: '(Paramètres serveur > Widget > ID serveur)',
+                defaultValue: 'ID serveur',
                 type: EditorType::TEXT,
             ),
             new EditorValue(

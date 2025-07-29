@@ -74,20 +74,20 @@ $menus = MenusModel::getInstance();
                                 </div>
                             </div>
                         </ul>
-                        <?php if (PackageController::isInstalled('Shop')): ?>
-                            <div>
-                                <a href="<?= Website::getProtocol() ?>://<?= $_SERVER['SERVER_NAME'] ?><?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/cart" style="display: inline-flex; position: relative; align-items: center; padding: .75rem;font-size: 0.875rem;line-height: 1.25rem">
-                                    <i class="text-lg fa-solid fa-cart-shopping"></i>
-                                    <span class="sr-only">Articles</span>
-                                    <div style="display: inline-flex; position: absolute; top: -0.2rem; right: -0.2rem; justify-content: center; align-items: center;width: 1.2rem; height: 1.2rem; font-size: 0.75rem;line-height: 1rem;font-weight: 700; color: white; background: red; border-radius: 100%"><?= $itemInCart ?></div>
-                                </a>
-                            </div>
-                        <?php endif; ?>
                     <?php else: ?>
                             <a data-cmw-visible="global:header_allow_login_button" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login"
                                class="text-white font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2">Connexion</a>
                             <a data-cmw-visible="global:header_allow_register_button" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>register"
                                class="text-white font-medium rounded-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 ">S'inscrire</a>
+                    <?php endif; ?>
+                    <?php if (PackageController::isInstalled('Shop')): ?>
+                        <div>
+                            <a href="<?= Website::getProtocol() ?>://<?= $_SERVER['SERVER_NAME'] ?><?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/cart" style="display: inline-flex; position: relative; align-items: center; padding: .75rem;font-size: 0.875rem;line-height: 1.25rem">
+                                <i class="text-lg fa-solid fa-cart-shopping"></i>
+                                <span class="sr-only">Articles</span>
+                                <div style="display: inline-flex; position: absolute; top: -0.2rem; right: -0.2rem; justify-content: center; align-items: center;width: 1.2rem; height: 1.2rem; font-size: 0.75rem;line-height: 1rem;font-weight: 700; color: white; background: red; border-radius: 100%"><?= $itemInCart ?></div>
+                            </a>
+                        </div>
                     <?php endif; ?>
                 </div>
 

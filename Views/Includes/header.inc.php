@@ -2,6 +2,8 @@
 /* @var \CMW\Entity\Users\UserEntity $user */
 
 use CMW\Controller\Core\PackageController;
+use CMW\Controller\Shop\Admin\Item\ShopItemsController;
+use CMW\Controller\Shop\Admin\Payment\ShopPaymentsController;
 use CMW\Controller\Users\UsersSessionsController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Controller\Users\UsersController;
@@ -64,6 +66,13 @@ $menus = MenusModel::getInstance();
                                             <a href="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/history"
                                                class="block py-2 px-4 text-white"><i class="fa-solid fa-clipboard-list"></i>
                                                 Commandes</a>
+                                        </li>
+                                    <?php endif; ?>
+                                    <?php if (PackageController::isInstalled('ShopExtendedToken')): ?>
+                                        <li>
+                                            <a href="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/tokens"
+                                               class="block py-2 px-4 text-white"><?= ShopPaymentsController::getInstance()->getPaymentByVarName('extendedToken')->faIcon() ?>
+                                                <?= ShopItemsController::getInstance()->getPriceTypeMethodsByVarName('extendedToken')->name() ?></a>
                                         </li>
                                     <?php endif; ?>
                                 </ul>

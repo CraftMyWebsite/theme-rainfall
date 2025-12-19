@@ -16,10 +16,7 @@ use CMW\Utils\Website;
     </div>
         <div data-cmw-visible="footer:footer_active_condition" class="px-6 md:flex-1">
             <span data-cmw="footer:footer_title_condition"></span><br>
-                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgu" data-cmw="footer:footer_desc_condition_use"></a></b>
-                /
-                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cgv" data-cmw="footer:footer_desc_condition_sale"></a></b>
-
+                <b><a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>all_terms" data-cmw="footer:footer_desc_condition_use"></a></b>
         </div>
 </div>
 </html>
